@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36429.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelWeb", "HotelApp\HotelWeb.csproj", "{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicaDeNegocio", "LogicaDeNegocio\LogicaDeNegocio.csproj", "{5D3BE2B8-206D-4E86-A884-BA7028569E2A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D3BE2B8-206D-4E86-A884-BA7028569E2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D3BE2B8-206D-4E86-A884-BA7028569E2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D3BE2B8-206D-4E86-A884-BA7028569E2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D3BE2B8-206D-4E86-A884-BA7028569E2A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C7CD4A24-2F99-44AC-9458-F2576BDFEE64}
+	EndGlobalSection
+EndGlobal
