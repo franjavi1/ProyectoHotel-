@@ -1,0 +1,285 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\franc\\source\\repos\\HotelApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|c:\\users\\franc\\source\\repos\\hotelapp\\hotelapp\\views\\habitaciones\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|solutionrelative:hotelapp\\views\\habitaciones\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|c:\\users\\franc\\source\\repos\\hotelapp\\hotelapp\\views\\huespedes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|solutionrelative:hotelapp\\views\\huespedes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|c:\\users\\franc\\source\\repos\\hotelapp\\hotelapp\\controllers\\huespedescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|solutionrelative:hotelapp\\controllers\\huespedescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|c:\\users\\franc\\source\\repos\\hotelapp\\hotelapp\\controllers\\reservascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|solutionrelative:hotelapp\\controllers\\reservascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|c:\\users\\franc\\source\\repos\\hotelapp\\hotelapp\\controllers\\habitacionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|solutionrelative:hotelapp\\controllers\\habitacionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D3BE2B8-206D-4E86-A884-BA7028569E2A}|LogicaDeNegocio\\LogicaDeNegocio.csproj|c:\\users\\franc\\source\\repos\\hotelapp\\logicadenegocio\\models\\habitacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D3BE2B8-206D-4E86-A884-BA7028569E2A}|LogicaDeNegocio\\LogicaDeNegocio.csproj|solutionrelative:logicadenegocio\\models\\habitacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D3BE2B8-206D-4E86-A884-BA7028569E2A}|LogicaDeNegocio\\LogicaDeNegocio.csproj|c:\\users\\franc\\source\\repos\\hotelapp\\logicadenegocio\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D3BE2B8-206D-4E86-A884-BA7028569E2A}|LogicaDeNegocio\\LogicaDeNegocio.csproj|solutionrelative:logicadenegocio\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|c:\\users\\franc\\source\\repos\\hotelapp\\hotelapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|solutionrelative:hotelapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|c:\\users\\franc\\source\\repos\\hotelapp\\hotelapp\\controllers\\empleadoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|solutionrelative:hotelapp\\controllers\\empleadoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|c:\\users\\franc\\source\\repos\\hotelapp\\hotelapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|solutionrelative:hotelapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|c:\\users\\franc\\source\\repos\\hotelapp\\hotelapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|solutionrelative:hotelapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D3BE2B8-206D-4E86-A884-BA7028569E2A}|LogicaDeNegocio\\LogicaDeNegocio.csproj|c:\\users\\franc\\source\\repos\\hotelapp\\logicadenegocio\\migrations\\20250923054047_inicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D3BE2B8-206D-4E86-A884-BA7028569E2A}|LogicaDeNegocio\\LogicaDeNegocio.csproj|solutionrelative:logicadenegocio\\migrations\\20250923054047_inicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D3BE2B8-206D-4E86-A884-BA7028569E2A}|LogicaDeNegocio\\LogicaDeNegocio.csproj|c:\\users\\franc\\source\\repos\\hotelapp\\logicadenegocio\\models\\reserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D3BE2B8-206D-4E86-A884-BA7028569E2A}|LogicaDeNegocio\\LogicaDeNegocio.csproj|solutionrelative:logicadenegocio\\models\\reserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D3BE2B8-206D-4E86-A884-BA7028569E2A}|LogicaDeNegocio\\LogicaDeNegocio.csproj|c:\\users\\franc\\source\\repos\\hotelapp\\logicadenegocio\\logicadenegocio.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{5D3BE2B8-206D-4E86-A884-BA7028569E2A}|LogicaDeNegocio\\LogicaDeNegocio.csproj|solutionrelative:logicadenegocio\\logicadenegocio.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D3BE2B8-206D-4E86-A884-BA7028569E2A}|LogicaDeNegocio\\LogicaDeNegocio.csproj|c:\\users\\franc\\source\\repos\\hotelapp\\logicadenegocio\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D3BE2B8-206D-4E86-A884-BA7028569E2A}|LogicaDeNegocio\\LogicaDeNegocio.csproj|solutionrelative:logicadenegocio\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D3BE2B8-206D-4E86-A884-BA7028569E2A}|LogicaDeNegocio\\LogicaDeNegocio.csproj|c:\\users\\franc\\source\\repos\\hotelapp\\logicadenegocio\\migrations\\20250923061237_renombrarproductosaempleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D3BE2B8-206D-4E86-A884-BA7028569E2A}|LogicaDeNegocio\\LogicaDeNegocio.csproj|solutionrelative:logicadenegocio\\migrations\\20250923061237_renombrarproductosaempleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\franc\\source\\repos\\HotelApp\\HotelApp\\Views\\Huespedes\\Index.cshtml",
+              "RelativeDocumentMoniker": "HotelApp\\Views\\Huespedes\\Index.cshtml",
+              "ToolTip": "C:\\Users\\franc\\source\\repos\\HotelApp\\HotelApp\\Views\\Huespedes\\Index.cshtml",
+              "RelativeToolTip": "HotelApp\\Views\\Huespedes\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-23T12:06:25.349Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\franc\\source\\repos\\HotelApp\\HotelApp\\Views\\Habitaciones\\Index.cshtml",
+              "RelativeDocumentMoniker": "HotelApp\\Views\\Habitaciones\\Index.cshtml",
+              "ToolTip": "C:\\Users\\franc\\source\\repos\\HotelApp\\HotelApp\\Views\\Habitaciones\\Index.cshtml",
+              "RelativeToolTip": "HotelApp\\Views\\Habitaciones\\Index.cshtml",
+              "ViewState": "AgIAACkAAAAAAAAAAAAYwD0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-23T06:31:34.496Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HabitacionesController.cs",
+              "DocumentMoniker": "C:\\Users\\franc\\source\\repos\\HotelApp\\HotelApp\\Controllers\\HabitacionesController.cs",
+              "RelativeDocumentMoniker": "HotelApp\\Controllers\\HabitacionesController.cs",
+              "ToolTip": "C:\\Users\\franc\\source\\repos\\HotelApp\\HotelApp\\Controllers\\HabitacionesController.cs",
+              "RelativeToolTip": "HotelApp\\Controllers\\HabitacionesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-23T06:19:15.96Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ReservasController.cs",
+              "DocumentMoniker": "C:\\Users\\franc\\source\\repos\\HotelApp\\HotelApp\\Controllers\\ReservasController.cs",
+              "RelativeDocumentMoniker": "HotelApp\\Controllers\\ReservasController.cs",
+              "ToolTip": "C:\\Users\\franc\\source\\repos\\HotelApp\\HotelApp\\Controllers\\ReservasController.cs",
+              "RelativeToolTip": "HotelApp\\Controllers\\ReservasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-23T06:18:35.394Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HuespedesController.cs",
+              "DocumentMoniker": "C:\\Users\\franc\\source\\repos\\HotelApp\\HotelApp\\Controllers\\HuespedesController.cs",
+              "RelativeDocumentMoniker": "HotelApp\\Controllers\\HuespedesController.cs",
+              "ToolTip": "C:\\Users\\franc\\source\\repos\\HotelApp\\HotelApp\\Controllers\\HuespedesController.cs",
+              "RelativeToolTip": "HotelApp\\Controllers\\HuespedesController.cs",
+              "ViewState": "AgIAAIwAAAAAAAAAAAAAAJ0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-23T06:17:45.728Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "20250923061237_RenombrarProductosAEmpleados.cs",
+              "DocumentMoniker": "C:\\Users\\franc\\source\\repos\\HotelApp\\LogicaDeNegocio\\Migrations\\20250923061237_RenombrarProductosAEmpleados.cs",
+              "RelativeDocumentMoniker": "LogicaDeNegocio\\Migrations\\20250923061237_RenombrarProductosAEmpleados.cs",
+              "ToolTip": "C:\\Users\\franc\\source\\repos\\HotelApp\\LogicaDeNegocio\\Migrations\\20250923061237_RenombrarProductosAEmpleados.cs",
+              "RelativeToolTip": "LogicaDeNegocio\\Migrations\\20250923061237_RenombrarProductosAEmpleados.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-23T06:12:37.804Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\franc\\source\\repos\\HotelApp\\HotelApp\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "HotelApp\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\franc\\source\\repos\\HotelApp\\HotelApp\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "HotelApp\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-23T05:58:53.74Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EmpleadosController.cs",
+              "DocumentMoniker": "C:\\Users\\franc\\source\\repos\\HotelApp\\HotelApp\\Controllers\\EmpleadosController.cs",
+              "RelativeDocumentMoniker": "HotelApp\\Controllers\\EmpleadosController.cs",
+              "ToolTip": "C:\\Users\\franc\\source\\repos\\HotelApp\\HotelApp\\Controllers\\EmpleadosController.cs",
+              "RelativeToolTip": "HotelApp\\Controllers\\EmpleadosController.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAmwEMAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-23T05:56:22.875Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "20250923054047_Inicial.cs",
+              "DocumentMoniker": "C:\\Users\\franc\\source\\repos\\HotelApp\\LogicaDeNegocio\\Migrations\\20250923054047_Inicial.cs",
+              "RelativeDocumentMoniker": "LogicaDeNegocio\\Migrations\\20250923054047_Inicial.cs",
+              "ToolTip": "C:\\Users\\franc\\source\\repos\\HotelApp\\LogicaDeNegocio\\Migrations\\20250923054047_Inicial.cs",
+              "RelativeToolTip": "LogicaDeNegocio\\Migrations\\20250923054047_Inicial.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-23T05:40:48.249Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Reserva.cs",
+              "DocumentMoniker": "C:\\Users\\franc\\source\\repos\\HotelApp\\LogicaDeNegocio\\Models\\Reserva.cs",
+              "RelativeDocumentMoniker": "LogicaDeNegocio\\Models\\Reserva.cs",
+              "ToolTip": "C:\\Users\\franc\\source\\repos\\HotelApp\\LogicaDeNegocio\\Models\\Reserva.cs",
+              "RelativeToolTip": "LogicaDeNegocio\\Models\\Reserva.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-23T05:36:24.56Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Habitacion.cs",
+              "DocumentMoniker": "C:\\Users\\franc\\source\\repos\\HotelApp\\LogicaDeNegocio\\Models\\Habitacion.cs",
+              "RelativeDocumentMoniker": "LogicaDeNegocio\\Models\\Habitacion.cs",
+              "ToolTip": "C:\\Users\\franc\\source\\repos\\HotelApp\\LogicaDeNegocio\\Models\\Habitacion.cs",
+              "RelativeToolTip": "LogicaDeNegocio\\Models\\Habitacion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-23T05:36:18.444Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\franc\\source\\repos\\HotelApp\\HotelApp\\Program.cs",
+              "RelativeDocumentMoniker": "HotelApp\\Program.cs",
+              "ToolTip": "C:\\Users\\franc\\source\\repos\\HotelApp\\HotelApp\\Program.cs",
+              "RelativeToolTip": "HotelApp\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-23T05:17:09.77Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\franc\\source\\repos\\HotelApp\\HotelApp\\appsettings.json",
+              "RelativeDocumentMoniker": "HotelApp\\appsettings.json",
+              "ToolTip": "C:\\Users\\franc\\source\\repos\\HotelApp\\HotelApp\\appsettings.json",
+              "RelativeToolTip": "HotelApp\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAACcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-23T05:14:35.093Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "LogicaDeNegocio.csproj",
+              "DocumentMoniker": "C:\\Users\\franc\\source\\repos\\HotelApp\\LogicaDeNegocio\\LogicaDeNegocio.csproj",
+              "RelativeDocumentMoniker": "LogicaDeNegocio\\LogicaDeNegocio.csproj",
+              "ToolTip": "C:\\Users\\franc\\source\\repos\\HotelApp\\LogicaDeNegocio\\LogicaDeNegocio.csproj",
+              "RelativeToolTip": "LogicaDeNegocio\\LogicaDeNegocio.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-23T05:03:58.531Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\franc\\source\\repos\\HotelApp\\LogicaDeNegocio\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "LogicaDeNegocio\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\franc\\source\\repos\\HotelApp\\LogicaDeNegocio\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "LogicaDeNegocio\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAmwCEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-23T05:02:58.885Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\franc\\source\\repos\\HotelApp\\LogicaDeNegocio\\Class1.cs",
+              "RelativeDocumentMoniker": "LogicaDeNegocio\\Class1.cs",
+              "ToolTip": "C:\\Users\\franc\\source\\repos\\HotelApp\\LogicaDeNegocio\\Class1.cs",
+              "RelativeToolTip": "LogicaDeNegocio\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-23T04:59:45.771Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
