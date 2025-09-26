@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HotelApp.Models;
 using LogicaDeNegocio.Data;
+using Microsoft.Data.SqlClient;
 
 namespace HotelWeb.Controllers
 {
@@ -142,11 +143,37 @@ namespace HotelWeb.Controllers
             var empleado = await _context.Empleados.FindAsync(id);
             if (empleado != null)
             {
-                _context.Empleados.Remove(empleado);
-            }
+                try
+                {
+                    _context.Empleados.Remove(empleado);
+                    await _context.SaveChangesAsync();
+                    
+                } 
+                catch (DbUpdateException ex) when (IsForeignKeyViolation(ex))
+                {
+                    // Mensaje claro para el usuario
+                    TempData["Error"] = "No se puede eliminar porque tiene reservas asociadas.";
+                    
+                }
+                catch (Exception)
+                {
+                    TempData["Error"] = "Ocurrió un error al eliminar el registro.";
+                    
+                }
 
-            await _context.SaveChangesAsync();
+            }
             return RedirectToAction(nameof(Index));
+
+
+        }
+
+        // Detecta violación de FK en SQL Server (error 547)
+        private static bool IsForeignKeyViolation(DbUpdateException ex)
+        {
+            // busca en InnerException y en la base
+            if (ex.InnerException is SqlException sql && sql.Number == 547) return true;
+            if (ex.GetBaseException() is SqlException b && b.Number == 547) return true;
+            return false;
         }
 
         private bool EmpleadoExists(int id)
