@@ -26,6 +26,25 @@ namespace LogicaDeNegocio.Data
             modelBuilder.Entity<Reserva>()
                 .Property(r => r.PrecioTotal)
                 .HasColumnType("decimal(18,2)");
+
+            modelBuilder.Entity<Reserva>()
+                .HasOne(r => r.Habitacion)
+                .WithMany()
+                .HasForeignKey(r => r.HabitacionId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Reserva>()
+                .HasOne(r => r.Huesped)
+                .WithMany()
+                .HasForeignKey(r => r.HuespedId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Reserva>()
+                .HasOne(r => r.Empleado)
+                .WithMany()
+                .HasForeignKey(r => r.EmpleadoId)
+                .OnDelete(DeleteBehavior.NoAction);
+
         }
 
 
