@@ -1,6 +1,11 @@
 ﻿@{
     ViewData["Title"] = "HotelWEB";
 }
+@if (TempData["Usuario"] != null)
+{
+    <p>Bienvenido, @TempData["Usuario"]</p>
+}
+
 
 <div class="text-center">
     <h1 class="display-4">HotelWEB</h1>

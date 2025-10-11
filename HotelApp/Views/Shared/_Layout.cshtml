@@ -37,6 +37,23 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item">
+                            @if (User.Identity != null && User.Identity.IsAuthenticated)
+                            {
+                                <p>
+                                    Bienvenido, @User.Identity.Name
+                                    <a asp-controller="Login" asp-action="Logout">Cerrar sesión</a>
+                                </p>
+                            }
+                            else
+                            {
+                                <p>
+                                    Para cambiar de cuenta de Google, cerrá sesión también en
+                                    <a href="https://accounts.google.com" target="_blank">Google</a>
+                                </p>
+                            }
+                        </li>
+
                     </ul>
                 </div>
             </div>
