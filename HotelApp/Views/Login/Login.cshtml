@@ -1,7 +1,88 @@
-﻿
-<h2>Iniciar sesión</h2>
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Iniciar sesión";
+}
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - HotelApp</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-<a asp-controller="Login" asp-action="GoogleLogin">
-    Login con Google
-</a>
+    <style>
+        body {
+            background-color: #212529;
+            color: white;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        .card {
+            background-color: #2c3034;
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .btn-google {
+            background-color: #fff;
+            color: #444;
+            font-weight: 500;
+            border-radius: 50px;
+            transition: all 0.2s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            border: 1px solid #ddd;
+        }
+
+            .btn-google:hover {
+                background-color: #f1f1f1;
+                transform: translateY(-2px);
+            }
+
+            .btn-google img {
+                width: 22px;
+                height: 22px;
+            }
+
+        .small-text {
+            font-size: 0.9rem;
+            color: #adb5bd;
+        }
+    </style>
+</head>
+<body>
+    <div class="card p-4 text-center animate__animated animate__fadeIn">
+        <div class="mb-3">
+            <h3 class="fw-bold">🏨 HotelApp</h3>
+            <p class="text-secondary">Iniciá sesión con tu cuenta</p>
+        </div>
+
+        <!-- 🔵 Botón Google con logo funcional -->
+        <a asp-controller="Login" asp-action="GoogleLogin" class="btn btn-google py-2 mb-3">
+            <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google Logo" />
+            <span>Iniciar sesión con Google</span>
+        </a>
+        <!-- ⚠️ Mensaje de aviso -->
+        <div class="alerta-google">
+            ⚠️ Si querés iniciar sesión<br /> con otra cuenta de Google,<br />
+            cerrá sesión también en
+            <a href="https://accounts.google.com/Logout" target="_blank">Google</a>.
+        </div>
+
+        <p class="small-text mb-0">&copy; 2025 HotelApp</p>
+    </div>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
