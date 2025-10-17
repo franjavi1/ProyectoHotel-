@@ -1,12 +1,72 @@
 ﻿@{
     ViewData["Title"] = "HotelWEB";
 }
+
 @if (TempData["Usuario"] != null)
 {
-    <p>Bienvenido, @TempData["Usuario"]</p>
+    <div class="alert alert-success text-center fw-semibold mt-3">
+        <i class="fa-solid fa-circle-user me-2"></i>
+        ¡Bienvenido, @TempData["Usuario"]!
+    </div>
 }
+<style>
+    body {
+        background: linear-gradient(135deg, #1f1f1f, #2b2b2b);
+        min-height: 100vh;
+        color: #e0e0e0;
+    }
 
+    h1 {
+        letter-spacing: 1px;
+    }
 
-<div class="text-center">
-    <h1 class="display-4">HotelWEB</h1>
+    .btn {
+        transition: all 0.3s ease;
+        border-radius: 10px;
+        font-weight: 600;
+    }
+
+    /* Botón principal (Ver Reservas) */
+    .btn-custom {
+        background-color: #5a6b7a; /* Azul grisáceo sobrio */
+        border: none;
+        color: #fff;
+    }
+
+        .btn-custom:hover {
+            background-color: #ff7b00; /* Naranja brillante */
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+    /* Botón secundario (Registrar Huésped) */
+    .btn-orange {
+        background-color: #5a6b7a;
+        ;
+        border: none;
+        color: #fff;
+    }
+
+        .btn-orange:hover {
+            background-color: #ff7b00;
+            color: #fff;
+            transform: scale(1.05);
+        }
+</style>
+
+<div class="text-center mt-4">
+    <h1 class="display-4 fw-bold text-light">🏨 HotelWEB</h1>
+    <p class="lead text-secondary">Tu panel de gestión hotelera fácil, rápido y moderno</p>
+    <hr class="mx-auto" style="width: 200px; border-top: 2px solid #ff7b00;">
+    <div class="mt-4">
+        <a asp-controller="Reservas" asp-action="Index" class="btn btn-custom btn-lg me-2">
+            <i class="fa-solid fa-calendar-days me-2"></i> Ver Reservas
+        </a>
+        <a asp-controller="Huespedes" asp-action="Index" class="btn btn-orange btn-lg">
+            <i class="fa-solid fa-user-plus me-2"></i> Registrar Huésped
+        </a>
+    </div>
+</div>
+<div class="text-center mt-5">
+    <img src="~/habitacion001.jpg" alt="Logo del Hotel" style="max-width: 500px;" />
 </div>
