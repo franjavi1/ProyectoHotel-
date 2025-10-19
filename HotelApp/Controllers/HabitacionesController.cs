@@ -22,9 +22,10 @@ namespace HotelWeb.Controllers
         // GET: Habitacions
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Habitaciones.ToListAsync());
+            await ActualizarDisponibilidadHabitaciones(); // 🔄 Actualiza la disponibilidad automáticamente
+            var habitaciones = await _context.Habitaciones.ToListAsync();
+            return View(habitaciones);
         }
-
         // GET: Habitacions/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -152,6 +153,27 @@ namespace HotelWeb.Controllers
         private bool HabitacionExists(int id)
         {
             return _context.Habitaciones.Any(e => e.Id == id);
+        }
+
+
+        private async Task ActualizarDisponibilidadHabitaciones()
+        {
+            var habitaciones = await _context.Habitaciones.ToListAsync();
+            var reservas = await _context.Reservas.ToListAsync();
+
+            foreach (var habitacion in habitaciones)
+            {
+                // Verifica si hay alguna reserva vigente hoy
+                var ocupada = reservas.Any(r =>
+                    r.HabitacionId == habitacion.Id &&
+                    r.FechaEntrada <= DateTime.Now &&
+                    r.FechaSalida >= DateTime.Now);
+
+                habitacion.Disponible = !ocupada;
+                _context.Update(habitacion);
+            }
+
+            await _context.SaveChangesAsync();
         }
     }
 }
