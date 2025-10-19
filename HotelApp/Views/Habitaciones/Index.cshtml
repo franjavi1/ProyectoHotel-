@@ -1,61 +1,158 @@
 ﻿@model IEnumerable<HotelApp.Models.Habitacion>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Habitaciones";
 }
 
-<h1>Index</h1>
+<div class="container habitaciones-container py-3">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="fw-bold text-dark mb-0">
+            <i class="fa-solid fa-door-closed me-2 text-warning"></i> Habitaciones
+        </h2>
+        <a asp-action="Create" class="btn btn-warning shadow-sm fw-semibold">
+            <i class="fa-solid fa-plus"></i> Nueva Habitación
+        </a>
+    </div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Numero)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tipo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Piso)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Precio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Disponible)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Numero)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tipo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Piso)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Precio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Disponible)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info text-center">
+            <i class="fa-solid fa-circle-info me-2"></i>
+            No hay habitaciones registradas.
+        </div>
+    }
+    else
+    {
+        <div class="row g-4 mt-1">
+            @foreach (var habitacion in Model)
+            {
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card shadow-sm border-0 habitacion-card">
+                 
 
+                        <!-- Cabecera -->
+                        <div class="card-header bg-dark text-light d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">
+                                <i class="fa-solid fa-bed text-warning me-2"></i>
+                                Habitación @habitacion.Numero
+                            </h5>
 
+                            @if (habitacion.Disponible)
+                            {
+                                <span class="badge bg-success">Disponible</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">Ocupada</span>
+                            }
+                        </div>
+
+                        <!-- Cuerpo -->
+                        <div class="card-body bg-light text-dark">
+                            <p class="mb-2">
+                                <i class="fa-solid fa-layer-group text-secondary me-2"></i>
+                                <strong>Piso:</strong> @habitacion.Piso
+                            </p>
+                            <p class="mb-2">
+                                <i class="fa-solid fa-door-open text-secondary me-2"></i>
+                                <strong>Tipo:</strong> @habitacion.Tipo
+                            </p>
+                            <p class="mb-0">
+                                <i class="fa-solid fa-money-bill-wave text-secondary me-2"></i>
+                                <strong>Precio:</strong> $@habitacion.Precio
+                            </p>
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="card-footer bg-white d-flex justify-content-between">
+                            <a asp-action="Edit" asp-route-id="@habitacion.Id" class="btn btn-sm btn-outline-dark">
+                                <i class="fa-solid fa-pen-to-square"></i> Editar
+                            </a>
+                            <a asp-action="Details" asp-route-id="@habitacion.Id" class="btn btn-sm btn-outline-secondary">
+                                <i class="fa-solid fa-eye"></i> Ver
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@habitacion.Id" class="btn btn-sm btn-outline-danger">
+                                <i class="fa-solid fa-trash"></i> Eliminar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+<style>
+    /* ==== GENERAL ==== */
+    body {
+        background-color: #f4f4f4;
+    }
+
+    .habitaciones-container {
+        padding-top: 1rem !important;
+        margin-top: 0 !important;
+    }
+
+    h2 {
+        margin-top: 0 !important;
+    }
+
+    /* ==== TARJETAS ==== */
+    .habitacion-card {
+        border-radius: 18px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        background-color: #ffffff;
+    }
+
+        .habitacion-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+    .card-header h5 {
+        font-weight: 600;
+    }
+
+    /* ==== BOTONES ==== */
+    .btn-outline-dark:hover {
+        background-color: #ff7b00;
+        border-color: #ff7b00;
+        color: #fff;
+    }
+
+    .btn-outline-danger:hover {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    .btn-outline-secondary:hover {
+        background-color: #6c757d;
+        color: white;
+    }
+
+    .btn-warning {
+        background-color: #ff7b00 !important;
+        border: none;
+    }
+
+        .btn-warning:hover {
+            background-color: #e96f00 !important;
+        }
+
+    /* ==== INSIGNIAS ==== */
+    .badge {
+        font-size: 0.9rem;
+        padding: 0.4em 0.6em;
+    }
+
+    /* ==== EFECTOS ==== */
+    .card-footer {
+        border-top: 1px solid #eee;
+    }
+
+    .card-body p i {
+        width: 20px;
+        text-align: center;
+    }
+</style>

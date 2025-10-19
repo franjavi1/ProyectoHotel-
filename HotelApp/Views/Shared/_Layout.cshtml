@@ -9,62 +9,105 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/HotelApp.styles.css" asp-append-version="true" />
-
-    <!-- Bootstrap Icons & Font Awesome -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
     <style>
-        /* Body */
         body {
             overflow-x: hidden;
-            background: linear-gradient(135deg, #1f1f1f, #2b2b2b);
-            color: #e0e0e0;
+            background: #f8f9fa;
+            color: #212529;
         }
 
-        /* Sidebar */
-        .sidebar {
-            min-height: 100vh;
+        /* Sidebar desktop */
+        .sidebar-desktop {
             background-color: #212529;
+            color: #e0e0e0;
+            min-height: 100vh;
             padding-top: 1rem;
         }
 
-            .sidebar .nav-link {
+            .sidebar-desktop .nav-link {
                 font-size: 1.05rem;
                 border-radius: 8px;
                 padding: 8px 12px;
-                transition: background-color 0.3s ease, transform 0.2s ease;
                 color: #e0e0e0;
                 display: flex;
                 align-items: center;
                 gap: 8px;
+                transition: background-color 0.3s ease, transform 0.2s ease;
             }
 
-                .sidebar .nav-link i {
+                .sidebar-desktop .nav-link i {
                     width: 24px;
                     text-align: center;
                     font-size: 1.2rem;
-                    color: #5a6b7a; /* Azul grisáceo */
+                    color: #5a6b7a;
                     transition: color 0.3s ease;
                 }
 
-                .sidebar .nav-link:hover {
+                .sidebar-desktop .nav-link:hover {
                     background-color: rgba(255,255,255,0.1);
                     transform: translateX(4px);
                 }
 
-                    .sidebar .nav-link:hover i {
-                        color: #ff7b00; /* Naranja */
+                    .sidebar-desktop .nav-link:hover i {
+                        color: #ff7b00;
                     }
 
-                .sidebar .nav-link.active {
+                .sidebar-desktop .nav-link.active {
                     background-color: #495057;
                     color: #fff;
                 }
 
+        /* User block */
+        .user-block {
+            background-color: #343a40;
+            color: #fff;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .user-block img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                border: 2px solid #fff;
+                object-fit: cover;
+            }
+
+            .user-block .user-info p {
+                margin: 0;
+                line-height: 1.1;
+            }
+
+            .user-block .ms-auto {
+                margin-left: auto;
+            }
+
+        /* Main content */
+        main {
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            background-color: #f8f9fa !important;
+            color: #212529;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid #ddd;
+            background-color: #f8f9fa;
+            color: #212529;
+            text-align: center;
+            padding: 0.5rem;
+        }
+
         /* Botones */
         .btn-custom {
-            background-color: #5a6b7a; /* Azul grisáceo */
+            background-color: #5a6b7a;
             color: #fff;
             border: none;
             font-weight: 600;
@@ -73,7 +116,7 @@
         }
 
             .btn-custom:hover {
-                background-color: #ff7b00; /* Naranja */
+                background-color: #ff7b00;
                 color: #fff;
                 transform: scale(1.05);
             }
@@ -88,111 +131,106 @@
         }
 
             .btn-warning:hover {
-                background-color: #5a6b7a !important; /* Azul grisáceo */
+                background-color: #5a6b7a !important;
                 color: #fff !important;
                 transform: scale(1.05);
             }
 
-        /* Contenido principal */
-        main {
-            padding: 2rem 1rem;
+        /* Offcanvas (menú móvil) */
+        .offcanvas-header {
+            position: relative;
         }
 
-        /* Footer */
-        footer {
-            border-top: 1px solid #444;
-        }
+            .offcanvas-header .btn-close {
+                position: absolute;
+                left: 334px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
 
-        /* Responsive móvil */
-        /* Responsive móvil */
-        @@media (max-width: 767.98px) {
-            .sidebar  {
-            min-height: auto !important;
-            height: auto !important;
-            position: static !important;
-            padding-bottom: 1rem;
-        }
-
-        }
-
-        .card,p, h1{
-            color: #212529 !important; /* texto gris oscuro */
-        }
-        }
     </style>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row">
+    <!-- Navbar móvil -->
+    <nav class="navbar navbar-dark bg-dark d-md-none">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">🏨 HotelApp</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
 
-            <!-- Sidebar -->
+    <!-- Offcanvas móvil -->
+    <div class="offcanvas offcanvas-start d-md-none bg-dark text-light" tabindex="-1" id="offcanvasSidebar">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title text-light">🏨 HotelApp</h5>
+            <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="nav flex-column">
+                <li class="nav-item"><a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index"><i class="fa-solid fa-hotel"></i> Home</a></li>
+                <li class="nav-item"><a class="nav-link text-light" asp-area="" asp-controller="Empleados" asp-action="Index"><i class="fa-solid fa-user-tie"></i> Empleados</a></li>
+                <li class="nav-item"><a class="nav-link text-light" asp-area="" asp-controller="Habitaciones" asp-action="Index"><i class="fa-solid fa-door-closed"></i> Habitaciones</a></li>
+                <li class="nav-item"><a class="nav-link text-light" asp-area="" asp-controller="Huespedes" asp-action="Index"><i class="fa-solid fa-users"></i> Huéspedes</a></li>
+                <li class="nav-item"><a class="nav-link text-light" asp-area="" asp-controller="Reservas" asp-action="Index"><i class="fa-solid fa-calendar-days"></i> Reservas</a></li>
+                <li class="nav-item"><a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy"><i class="fa-solid fa-shield-halved"></i> Privacy</a></li>
+            </ul>
             @if (User.Identity != null && User.Identity.IsAuthenticated)
             {
-                <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar position-sticky">
+                <div class="user-block mt-3 bg-secondary text-light">
+                    <div class="user-info">
+                        <p>Bienvenido,</p>
+                        <p><strong>@User.Identity.Name</strong></p>
+                    </div>
+                    <a class="btn btn-outline-warning btn-sm ms-auto" asp-controller="Login" asp-action="Logout">Cerrar sesión</a>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar desktop -->
+            @if (User.Identity != null && User.Identity.IsAuthenticated)
+            {
+                <nav class="col-md-3 col-lg-2 d-none d-md-block sidebar-desktop position-sticky">
                     <h5 class="text-light text-center mb-4">
                         <a class="navbar-brand text-light" asp-area="" asp-controller="Home" asp-action="Index">🏨 HotelApp</a>
                     </h5>
 
                     <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center gap-2" asp-area="" asp-controller="Home" asp-action="Index">
-                                <i class="fa-solid fa-hotel"></i> Home
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center gap-2" asp-area="" asp-controller="Empleados" asp-action="Index">
-                                <i class="fa-solid fa-user-tie"></i> Empleados
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center gap-2" asp-area="" asp-controller="Habitaciones" asp-action="Index">
-                                <i class="fa-solid fa-door-closed"></i> Habitaciones
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center gap-2" asp-area="" asp-controller="Huespedes" asp-action="Index">
-                                <i class="fa-solid fa-users"></i> Huéspedes
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center gap-2" asp-area="" asp-controller="Reservas" asp-action="Index">
-                                <i class="fa-solid fa-calendar-days"></i> Reservas
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center gap-2" asp-area="" asp-controller="Home" asp-action="Privacy">
-                                <i class="fa-solid fa-shield-halved"></i> Privacy
-                            </a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"><i class="fa-solid fa-hotel"></i> Home</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Empleados" asp-action="Index"><i class="fa-solid fa-user-tie"></i> Empleados</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Habitaciones" asp-action="Index"><i class="fa-solid fa-door-closed"></i> Habitaciones</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Huespedes" asp-action="Index"><i class="fa-solid fa-users"></i> Huéspedes</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Reservas" asp-action="Index"><i class="fa-solid fa-calendar-days"></i> Reservas</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy"><i class="fa-solid fa-shield-halved"></i> Privacy</a></li>
                     </ul>
 
-                    <hr class="text-secondary">
-
-                    <div class="px-3 text-light">
-                        <p>Bienvenido, <strong>@User.Identity.Name</strong></p>
-                        <a class="btn btn-outline-warning btn-sm" asp-controller="Login" asp-action="Logout">Cerrar sesión</a>
+                    <div class="user-block mt-4">
+                        <div class="user-info">
+                            <p>Bienvenido,</p>
+                            <p><strong>@User.Identity.Name</strong></p>
+                        </div>
+                        <a class="btn btn-outline-warning btn-sm ms-auto" asp-controller="Login" asp-action="Logout">Cerrar sesión</a>
                     </div>
                 </nav>
             }
 
             <!-- Contenido principal -->
-            <main role="main" class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4 bg-light">
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
                 <partial name="_Alerts" />
                 @RenderBody()
             </main>
-
         </div>
     </div>
 
-    <footer class="border-top footer text-muted py-3 bg-dark text-light">
-        <div class="container">
-            &copy; 2025 - HotelApp - <a asp-area="" asp-controller="Home" asp-action="Privacy" class="text-light">Privacy</a>
-        </div>
+    <footer>
+        &copy; 2025 - HotelApp - <a asp-area="" asp-controller="Home" asp-action="Privacy" class="text-dark">Privacy</a>
     </footer>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

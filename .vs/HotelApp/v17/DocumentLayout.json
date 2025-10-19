@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|c:\\users\\franc\\desktop\\trabajo practico aspnet\\proyectohotel-\\hotelapp\\views\\shared\\_alerts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|solutionrelative:hotelapp\\views\\shared\\_alerts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|c:\\users\\franc\\desktop\\trabajo practico aspnet\\proyectohotel-\\hotelapp\\controllers\\habitacionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|solutionrelative:hotelapp\\controllers\\habitacionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|c:\\users\\franc\\desktop\\trabajo practico aspnet\\proyectohotel-\\hotelapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|solutionrelative:hotelapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|c:\\users\\franc\\desktop\\trabajo practico aspnet\\proyectohotel-\\hotelapp\\controllers\\reservascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|solutionrelative:hotelapp\\controllers\\reservascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|c:\\users\\franc\\desktop\\trabajo practico aspnet\\proyectohotel-\\hotelapp\\views\\habitaciones\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|solutionrelative:hotelapp\\views\\habitaciones\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|c:\\users\\franc\\desktop\\trabajo practico aspnet\\proyectohotel-\\hotelapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|solutionrelative:hotelapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|c:\\users\\franc\\desktop\\trabajo practico aspnet\\proyectohotel-\\hotelapp\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -27,6 +31,18 @@
       "RelativeMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|solutionrelative:hotelapp\\views\\huespedes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{5D3BE2B8-206D-4E86-A884-BA7028569E2A}|LogicaDeNegocio\\LogicaDeNegocio.csproj|c:\\users\\franc\\desktop\\trabajo practico aspnet\\proyectohotel-\\logicadenegocio\\models\\huesped.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D3BE2B8-206D-4E86-A884-BA7028569E2A}|LogicaDeNegocio\\LogicaDeNegocio.csproj|solutionrelative:logicadenegocio\\models\\huesped.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|c:\\users\\franc\\desktop\\trabajo practico aspnet\\proyectohotel-\\hotelapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|solutionrelative:hotelapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|c:\\users\\franc\\desktop\\trabajo practico aspnet\\proyectohotel-\\hotelapp\\views\\shared\\_alerts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|solutionrelative:hotelapp\\views\\shared\\_alerts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|c:\\users\\franc\\desktop\\trabajo practico aspnet\\proyectohotel-\\hotelapp\\controllers\\empleadoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|solutionrelative:hotelapp\\controllers\\empleadoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -35,16 +51,8 @@
       "RelativeMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|solutionrelative:hotelapp\\controllers\\huespedescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5D3BE2B8-206D-4E86-A884-BA7028569E2A}|LogicaDeNegocio\\LogicaDeNegocio.csproj|c:\\users\\franc\\desktop\\trabajo practico aspnet\\proyectohotel-\\logicadenegocio\\models\\huesped.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5D3BE2B8-206D-4E86-A884-BA7028569E2A}|LogicaDeNegocio\\LogicaDeNegocio.csproj|solutionrelative:logicadenegocio\\models\\huesped.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5D3BE2B8-206D-4E86-A884-BA7028569E2A}|LogicaDeNegocio\\LogicaDeNegocio.csproj|c:\\users\\franc\\desktop\\trabajo practico aspnet\\proyectohotel-\\logicadenegocio\\models\\reserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5D3BE2B8-206D-4E86-A884-BA7028569E2A}|LogicaDeNegocio\\LogicaDeNegocio.csproj|solutionrelative:logicadenegocio\\models\\reserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|c:\\users\\franc\\desktop\\trabajo practico aspnet\\proyectohotel-\\hotelapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{E4594317-A4E8-4009-BAE6-5BDB3ADE207D}|HotelApp\\HotelWeb.csproj|solutionrelative:hotelapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}|Solution Items{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}|C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
@@ -58,7 +66,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -78,32 +86,71 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Views\\Habitaciones\\Index.cshtml",
-              "RelativeDocumentMoniker": "HotelApp\\Views\\Habitaciones\\Index.cshtml",
-              "ToolTip": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Views\\Habitaciones\\Index.cshtml",
-              "RelativeToolTip": "HotelApp\\Views\\Habitaciones\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-17T09:52:22.374Z",
+              "DocumentIndex": 0,
+              "Title": "HabitacionesController.cs",
+              "DocumentMoniker": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Controllers\\HabitacionesController.cs",
+              "RelativeDocumentMoniker": "HotelApp\\Controllers\\HabitacionesController.cs",
+              "ToolTip": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Controllers\\HabitacionesController.cs",
+              "RelativeToolTip": "HotelApp\\Controllers\\HabitacionesController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAmwHcAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T19:57:03.949Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Views\\Login\\Login.cshtml",
-              "RelativeDocumentMoniker": "HotelApp\\Views\\Login\\Login.cshtml",
-              "ToolTip": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Views\\Login\\Login.cshtml",
-              "RelativeToolTip": "HotelApp\\Views\\Login\\Login.cshtml",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-17T02:34:06.431Z"
+              "DocumentIndex": 1,
+              "Title": "ReservasController.cs",
+              "DocumentMoniker": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Controllers\\ReservasController.cs",
+              "RelativeDocumentMoniker": "HotelApp\\Controllers\\ReservasController.cs",
+              "ToolTip": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Controllers\\ReservasController.cs",
+              "RelativeToolTip": "HotelApp\\Controllers\\ReservasController.cs",
+              "ViewState": "AgIAAJsAAAAAAAAAAAAqwK8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T19:47:20.936Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
+              "Title": "HuespedesController.cs",
+              "DocumentMoniker": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Controllers\\HuespedesController.cs",
+              "RelativeDocumentMoniker": "HotelApp\\Controllers\\HuespedesController.cs",
+              "ToolTip": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Controllers\\HuespedesController.cs",
+              "RelativeToolTip": "HotelApp\\Controllers\\HuespedesController.cs",
+              "ViewState": "AgIAAIcAAAAAAAAAAAAuwIsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T12:14:07.83Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\appsettings.json",
+              "RelativeDocumentMoniker": "HotelApp\\appsettings.json",
+              "ToolTip": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\appsettings.json",
+              "RelativeToolTip": "HotelApp\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-13T04:15:48.795Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "_Alerts.cshtml",
+              "DocumentMoniker": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Views\\Shared\\_Alerts.cshtml",
+              "RelativeDocumentMoniker": "HotelApp\\Views\\Shared\\_Alerts.cshtml",
+              "ToolTip": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Views\\Shared\\_Alerts.cshtml",
+              "RelativeToolTip": "HotelApp\\Views\\Shared\\_Alerts.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-26T01:01:10.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "EmpleadosController.cs",
               "DocumentMoniker": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Controllers\\EmpleadosController.cs",
               "RelativeDocumentMoniker": "HotelApp\\Controllers\\EmpleadosController.cs",
@@ -115,31 +162,71 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 13,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF8SURBVDhPjVNLTgJBEG1lwpoFB3GNK9fieA48hD8iwT/ihwgSDAIHgAGXXsEV18CNzL/LquqZdsYM6kteXqcy3fWqpmpNRBgOhyABBEgpAFVKPIMUcYzUyOU\u002BXM/b2qtU3vkSfRjjZTCAMAw1A2LwzdFoBPP5HNqdzuL27n4juibWI\u002BUshBA1DIkhEx9iEorFotgslQqGYbxxAGFEqt1MxmPWJLbLZdZ\u002Bv89q5PMFPiTR6z2zdaxR0fXA0XTBcVywkb4fwHXjRteecIDNQ7UmExVYAdPcxYaqclN46na5WenMKjtlVnTYwcXlVYaDqImW9beD5N/TeGy32QHXm6hZ03ZgiSQHp2fnWQ4oBmJqWSqwAqZpZjt4aLXAD4J0VqyZsmoubfB8H2r1eoaD6NXZ9HcHO\u002BSA3f4AjifXl8rItOETM8ckB9WTWpYD9RdeZ1PWVWAHWXPQaDb59f/w8LiqHeh1pvGkCaP6qB8yXusoxmuNZ7XmII4O9vGuEF86osuDYRkpYQAAAABJRU5ErkJggg==",
+              "WhenOpened": "2025-09-26T12:13:55.18Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Views\\Huespedes\\Index.cshtml",
-              "RelativeDocumentMoniker": "HotelApp\\Views\\Huespedes\\Index.cshtml",
-              "ToolTip": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Views\\Huespedes\\Index.cshtml",
-              "RelativeToolTip": "HotelApp\\Views\\Huespedes\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAOAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "HotelApp\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "HotelApp\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-13T12:33:21.5Z"
+              "WhenOpened": "2025-09-26T11:56:15.573Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Huesped.cs",
-              "DocumentMoniker": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\LogicaDeNegocio\\Models\\Huesped.cs",
-              "RelativeDocumentMoniker": "LogicaDeNegocio\\Models\\Huesped.cs",
-              "ToolTip": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\LogicaDeNegocio\\Models\\Huesped.cs",
-              "RelativeToolTip": "LogicaDeNegocio\\Models\\Huesped.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T12:20:42.762Z"
+              "DocumentIndex": 5,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Views\\Login\\Login.cshtml",
+              "RelativeDocumentMoniker": "HotelApp\\Views\\Login\\Login.cshtml",
+              "ToolTip": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Views\\Login\\Login.cshtml",
+              "RelativeToolTip": "HotelApp\\Views\\Login\\Login.cshtml",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAACgAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-17T02:34:06.431Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Views\\Habitaciones\\Index.cshtml",
+              "RelativeDocumentMoniker": "HotelApp\\Views\\Habitaciones\\Index.cshtml",
+              "ToolTip": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Views\\Habitaciones\\Index.cshtml",
+              "RelativeToolTip": "HotelApp\\Views\\Habitaciones\\Index.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACIAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-17T09:52:22.374Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "HotelApp\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "HotelApp\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAAAIQAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-26T00:59:13.476Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "Reserva.cs",
               "DocumentMoniker": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\LogicaDeNegocio\\Models\\Reserva.cs",
               "RelativeDocumentMoniker": "LogicaDeNegocio\\Models\\Reserva.cs",
@@ -152,76 +239,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "HuespedesController.cs",
-              "DocumentMoniker": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Controllers\\HuespedesController.cs",
-              "RelativeDocumentMoniker": "HotelApp\\Controllers\\HuespedesController.cs",
-              "ToolTip": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Controllers\\HuespedesController.cs",
-              "RelativeToolTip": "HotelApp\\Controllers\\HuespedesController.cs",
-              "ViewState": "AgIAAIcAAAAAAAAAAAAuwIsAAAAAAAAAAAAAAA==",
+              "Title": "Huesped.cs",
+              "DocumentMoniker": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\LogicaDeNegocio\\Models\\Huesped.cs",
+              "RelativeDocumentMoniker": "LogicaDeNegocio\\Models\\Huesped.cs",
+              "ToolTip": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\LogicaDeNegocio\\Models\\Huesped.cs",
+              "RelativeToolTip": "LogicaDeNegocio\\Models\\Huesped.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T12:14:07.83Z"
+              "WhenOpened": "2025-10-13T12:20:42.762Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\appsettings.json",
-              "RelativeDocumentMoniker": "HotelApp\\appsettings.json",
-              "ToolTip": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\appsettings.json",
-              "RelativeToolTip": "HotelApp\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-13T04:15:48.795Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\.gitignore",
-              "RelativeDocumentMoniker": ".gitignore",
-              "ToolTip": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\.gitignore",
-              "RelativeToolTip": ".gitignore",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF8SURBVDhPjVNLTgJBEG1lwpoFB3GNK9fieA48hD8iwT/ihwgSDAIHgAGXXsEV18CNzL/LquqZdsYM6kteXqcy3fWqpmpNRBgOhyABBEgpAFVKPIMUcYzUyOU\u002BXM/b2qtU3vkSfRjjZTCAMAw1A2LwzdFoBPP5HNqdzuL27n4juibWI\u002BUshBA1DIkhEx9iEorFotgslQqGYbxxAGFEqt1MxmPWJLbLZdZ\u002Bv89q5PMFPiTR6z2zdaxR0fXA0XTBcVywkb4fwHXjRteecIDNQ7UmExVYAdPcxYaqclN46na5WenMKjtlVnTYwcXlVYaDqImW9beD5N/TeGy32QHXm6hZ03ZgiSQHp2fnWQ4oBmJqWSqwAqZpZjt4aLXAD4J0VqyZsmoubfB8H2r1eoaD6NXZ9HcHO\u002BSA3f4AjifXl8rItOETM8ckB9WTWpYD9RdeZ1PWVWAHWXPQaDb59f/w8LiqHeh1pvGkCaP6qB8yXusoxmuNZ7XmII4O9vGuEF86osuDYRkpYQAAAABJRU5ErkJggg==",
-              "WhenOpened": "2025-09-26T12:13:55.18Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "HotelApp\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "HotelApp\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwCUAAAAYAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Views\\Huespedes\\Index.cshtml",
+              "RelativeDocumentMoniker": "HotelApp\\Views\\Huespedes\\Index.cshtml",
+              "ToolTip": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Views\\Huespedes\\Index.cshtml",
+              "RelativeToolTip": "HotelApp\\Views\\Huespedes\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-26T11:56:15.573Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_Alerts.cshtml",
-              "DocumentMoniker": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Views\\Shared\\_Alerts.cshtml",
-              "RelativeDocumentMoniker": "HotelApp\\Views\\Shared\\_Alerts.cshtml",
-              "ToolTip": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Views\\Shared\\_Alerts.cshtml",
-              "RelativeToolTip": "HotelApp\\Views\\Shared\\_Alerts.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-26T01:01:10.397Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "HotelApp\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\franc\\Desktop\\TRABAJO PRACTICO ASPNET\\ProyectoHotel-\\HotelApp\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "HotelApp\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAAAHUAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-26T00:59:13.476Z",
+              "WhenOpened": "2025-10-13T12:33:21.5Z",
               "EditorCaption": ""
             }
           ]

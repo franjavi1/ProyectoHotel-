@@ -9,11 +9,11 @@
         ¡Bienvenido, @TempData["Usuario"]!
     </div>
 }
+
 <style>
     body {
-        background: linear-gradient(135deg, #1f1f1f, #2b2b2b);
-        min-height: 100vh;
-        color: #e0e0e0;
+        background-color: #f8f9fa; /* fondo claro como el layout */
+        color: #212529;
     }
 
     h1 {
@@ -28,13 +28,13 @@
 
     /* Botón principal (Ver Reservas) */
     .btn-custom {
-        background-color: #5a6b7a; /* Azul grisáceo sobrio */
+        background-color: #5a6b7a;
         border: none;
         color: #fff;
     }
 
         .btn-custom:hover {
-            background-color: #ff7b00; /* Naranja brillante */
+            background-color: #ff7b00;
             color: #fff;
             transform: scale(1.05);
         }
@@ -42,7 +42,6 @@
     /* Botón secundario (Registrar Huésped) */
     .btn-orange {
         background-color: #5a6b7a;
-        ;
         border: none;
         color: #fff;
     }
@@ -52,10 +51,18 @@
             color: #fff;
             transform: scale(1.05);
         }
+
+    /* Contenedor de la página */
+    .page-main {
+        padding: 2rem 1rem;
+        background-color: #f8f9fa; /* claro */
+        color: #212529;
+        min-height: 100vh;
+    }
 </style>
 
-<div class="text-center mt-4">
-    <h1 class="display-4 fw-bold text-light">🏨 HotelWEB</h1>
+<div class="page-main text-center">
+    <h1 class="display-4 fw-bold text-dark">🏨 HotelWEB</h1>
     <p class="lead text-secondary">Tu panel de gestión hotelera fácil, rápido y moderno</p>
     <hr class="mx-auto" style="width: 200px; border-top: 2px solid #ff7b00;">
     <div class="mt-4">
@@ -66,7 +73,8 @@
             <i class="fa-solid fa-user-plus me-2"></i> Registrar Huésped
         </a>
     </div>
-</div>
-<div class="text-center mt-5">
-    <img src="~/habitacion001.jpg" alt="Logo del Hotel" style="max-width: 500px;" />
+
+    <div class="mt-5">
+        <img src="~/habitacion001.jpg" alt="Logo del Hotel" style="max-width: 500px;" />
+    </div>
 </div>
