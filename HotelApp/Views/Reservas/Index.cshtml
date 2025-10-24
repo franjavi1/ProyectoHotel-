@@ -4,7 +4,8 @@
     ViewData["Title"] = "Reservas";
 }
 
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css" />
 
 <h1>Reservas</h1>
 
@@ -47,9 +48,13 @@
 </table>
 
 @section Scripts {
-    <!-- jQuery + DataTables -->
+    <!-- jQuery + DataTables + Bootstrap integration + Responsive -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
 
     <script>
         (function () {
@@ -65,7 +70,6 @@
                             targets: 6, // columna Pagado
                             className: 'text-center',
                             render: function (data, type, row) {
-                                // data ya será "Sí"/"No" por el render del servidor, pero lo normalizamos
                                 var d = (data || '').toString().toLowerCase();
                                 if (d === 'sí' || d === 'si' || d === 'true') return '<span class="badge bg-success">Sí</span>';
                                 if (d === 'no' || d === 'false') return '<span class="badge bg-danger">No</span>';
@@ -76,7 +80,6 @@
                             targets: 5, // PrecioTotal
                             className: 'text-end',
                             render: function (data, type, row) {
-                                // si es tipo display, dejarlo como viene (ya formateado en Razor)
                                 return data;
                             }
                         },
