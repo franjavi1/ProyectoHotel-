@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+@{
+    var antiforgeryToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
+}
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8" />
@@ -10,6 +14,8 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/HotelApp.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <meta name="csrf-token" content="@antiforgeryToken" />
 
     <style>
         body {
@@ -147,7 +153,6 @@
                 top: 50%;
                 transform: translateY(-50%);
             }
-
     </style>
 </head>
 <body>
@@ -174,7 +179,7 @@
                 <li class="nav-item"><a class="nav-link text-light" asp-area="" asp-controller="Habitaciones" asp-action="Index"><i class="fa-solid fa-door-closed"></i> Habitaciones</a></li>
                 <li class="nav-item"><a class="nav-link text-light" asp-area="" asp-controller="Huespedes" asp-action="Index"><i class="fa-solid fa-users"></i> Huéspedes</a></li>
                 <li class="nav-item"><a class="nav-link text-light" asp-area="" asp-controller="Reservas" asp-action="Index"><i class="fa-solid fa-calendar-days"></i> Reservas</a></li>
-                <li class="nav-item"><a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy"><i class="fa-solid fa-shield-halved"></i> Privacy</a></li>
+                <li class="nav-item"><a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy"><i class="fa-solid fa-shield-halved"></i> Estadísticas</a></li>
             </ul>
             @if (User.Identity != null && User.Identity.IsAuthenticated)
             {
@@ -205,7 +210,7 @@
                         <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Habitaciones" asp-action="Index"><i class="fa-solid fa-door-closed"></i> Habitaciones</a></li>
                         <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Huespedes" asp-action="Index"><i class="fa-solid fa-users"></i> Huéspedes</a></li>
                         <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Reservas" asp-action="Index"><i class="fa-solid fa-calendar-days"></i> Reservas</a></li>
-                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy"><i class="fa-solid fa-shield-halved"></i> Privacy</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy"><i class="fa-solid fa-shield-halved"></i> Estadísticas</a></li>
                     </ul>
 
                     <div class="user-block mt-4">
@@ -227,10 +232,60 @@
     </div>
 
     <footer>
-        &copy; 2025 - HotelApp - <a asp-area="" asp-controller="Home" asp-action="Privacy" class="text-dark">Privacy</a>
+        &copy; 2025 - HotelApp - <a asp-area="" asp-controller="Home" asp-action="Privacy" class="text-dark">Estadísticas</a>
     </footer>
 
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- SweetAlert2 (global) -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        // Manejo global de confirmaciones: cualquier enlace con el atributo data-swal-confirm
+        document.addEventListener('click', function (e) {
+            const el = e.target.closest('[data-swal-confirm]');
+            if (!el) return;
+            e.preventDefault();
+
+            const title = el.getAttribute('data-swal-title') || 'Confirmar acción';
+            const text = el.getAttribute('data-swal-text') || '¿Estás seguro?';
+            const href = el.getAttribute('href');
+            const postUrl = el.getAttribute('data-post-url'); // opcional para POST
+
+            Swal.fire({
+                title: title,
+                text: text,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#dc3545',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: 'Sí, confirmar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    if (postUrl) {
+                        // crear y enviar form POST (incluye token antiforgery desde meta)
+                        const form = document.createElement('form');
+                        form.method = 'post';
+                        form.action = postUrl;
+                        const tokenMeta = document.querySelector('meta[name="csrf-token"]');
+                        if (tokenMeta) {
+                            const input = document.createElement('input');
+                            input.type = 'hidden';
+                            input.name = '__RequestVerificationToken';
+                            input.value = tokenMeta.content;
+                            form.appendChild(input);
+                        }
+                        document.body.appendChild(form);
+                        form.submit();
+                    } else if (href) {
+                        window.location = href;
+                    }
+                }
+            });
+        }, false);
+    </script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

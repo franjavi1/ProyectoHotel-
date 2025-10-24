@@ -1,4 +1,5 @@
-﻿@{
+﻿@using System.Text.Json
+@{
     var ok = TempData["OK"] as string;
     var error = TempData["Error"] as string;
     var warn = TempData["Warning"] as string;
@@ -33,3 +34,34 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
     </div>
 }
+
+<script>
+    // Espera a que la página y scripts (incluyendo SweetAlert2) estén cargados
+    window.addEventListener('load', function () {
+        const ok = @Html.Raw(JsonSerializer.Serialize(ok));
+        const error = @Html.Raw(JsonSerializer.Serialize(error));
+        const warn = @Html.Raw(JsonSerializer.Serialize(warn));
+        const info = @Html.Raw(JsonSerializer.Serialize(info));
+
+        function showSwal(icon, text) {
+            if (!text) return;
+            if (window.Swal) {
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    icon: icon,
+                    title: text,
+                    showConfirmButton: false,
+                    timer: 3500,
+                    timerProgressBar: true
+                });
+            }
+            // Si no existe Swal, ya se muestran las alertas Bootstrap renderizadas arriba.
+        }
+
+        if (ok) showSwal('success', ok);
+        if (error) showSwal('error', error);
+        if (warn) showSwal('warning', warn);
+        if (info) showSwal('info', info);
+    });
+</script>

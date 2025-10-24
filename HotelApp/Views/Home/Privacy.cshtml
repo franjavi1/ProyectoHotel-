@@ -1,6 +1,163 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Estadísticas";
 }
-<h1>@ViewData["Title"]</h1>
+<div class="container py-4">
+    <h1 class="mb-3">@ViewData["Title"]</h1>
+    <p>Estadísticas del hotel: reservas, ingresos y estado de pagos (últimos 6 meses).</p>
 
-<p>Use this page to detail your site's privacy policy.</p>
+    <div class="row mt-4">
+        <div class="col-12 col-md-4 mb-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Resumen rápido</h5>
+                    <div id="summaryBlock" class="mt-2">
+                        <p class="mb-1"><strong>Total reservas:</strong> <span id="totalReservas">—</span></p>
+                        <p class="mb-1"><strong>Pagadas:</strong> <span id="pagadas">—</span></p>
+                        <p class="mb-1"><strong>No pagadas:</strong> <span id="noPagadas">—</span></p>
+                        <p class="mb-1"><strong>Habitaciones totales:</strong> <span id="totalHabitaciones">—</span></p>
+                        <p class="mb-0"><strong>Ocupadas ahora:</strong> <span id="ocupadasAhora">—</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-8 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Pagos (Pagadas vs No pagadas)</h5>
+                    <div style="height:240px;">
+                        <canvas id="pagosChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Reservas por mes (últimos 6 meses)</h5>
+                    <div style="height:260px;">
+                        <canvas id="reservasMesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Ingresos por mes (últimos 6 meses)</h5>
+                    <div style="height:260px;">
+                        <canvas id="ingresosChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        (function () {
+            // Datos inyectados desde el servidor (HomeController)
+            const labels = @Html.Raw(ViewData["LabelsJson"] ?? "[]");
+            const reservasCounts = @Html.Raw(ViewData["ReservasCountsJson"] ?? "[]");
+            const ingresos = @Html.Raw(ViewData["IngresosJson"] ?? "[]");
+            const pagos = @Html.Raw(ViewData["PagosJson"] ?? "[]");
+            const summary = @Html.Raw(ViewData["SummaryJson"] ?? "{}");
+
+            // Rellenar bloque resumen
+            document.getElementById('totalReservas').textContent = summary.TotalReservas ?? 0;
+            document.getElementById('pagadas').textContent = summary.Pagadas ?? 0;
+            document.getElementById('noPagadas').textContent = summary.NoPagadas ?? 0;
+            document.getElementById('totalHabitaciones').textContent = summary.TotalHabitaciones ?? 0;
+            document.getElementById('ocupadasAhora').textContent = summary.OcupadasAhora ?? 0;
+
+            // Chart: Pagos (doughnut)
+            const ctxPagos = document.getElementById('pagosChart').getContext('2d');
+            new Chart(ctxPagos, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Pagadas', 'No pagadas'],
+                    datasets: [{
+                        data: pagos,
+                        backgroundColor: ['#28a745', '#dc3545'],
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    },
+                    cutout: '55%'
+                }
+            });
+
+            // Chart: Reservas por mes (bar)
+            const ctxReservas = document.getElementById('reservasMesChart').getContext('2d');
+            new Chart(ctxReservas, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Reservas',
+                        data: reservasCounts,
+                        backgroundColor: 'rgba(54, 162, 235, 0.8)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1,
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { mode: 'index' }
+                    },
+                    scales: {
+                        x: { grid: { display: false } },
+                        y: { beginAtZero: true, ticks: { stepSize: 1 } }
+                    }
+                }
+            });
+
+            // Chart: Ingresos por mes (line)
+            const ctxIngresos = document.getElementById('ingresosChart').getContext('2d');
+            new Chart(ctxIngresos, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Ingresos',
+                        data: ingresos,
+                        fill: true,
+                        backgroundColor: 'rgba(255, 123, 0, 0.15)',
+                        borderColor: '#ff7b00',
+                        tension: 0.3,
+                        pointRadius: 4,
+                        pointBackgroundColor: '#ff7b00'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { callbacks: {
+                            label: function (ctx) {
+                                const value = ctx.parsed.y ?? 0;
+                                return ' $' + value.toFixed(2);
+                            }
+                        } }
+                    },
+                    scales: {
+                        y: { beginAtZero: true, ticks: { callback: v => '$' + v } }
+                    }
+                }
+            });
+        })();
+    </script>
+}
