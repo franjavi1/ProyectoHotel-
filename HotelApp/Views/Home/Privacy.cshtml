@@ -2,13 +2,11 @@
     ViewData["Title"] = "Estadísticas";
 }
 
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
     body {
-        
         font-family: 'Inter', sans-serif;
         background-color: #f7f9fb;
     }
@@ -24,7 +22,7 @@
 </style>
 
 <div class="container mx-auto px-4 py-8 md:py-12 max-w-7xl">
-    
+
     <header class="mb-8 border-b pb-4">
         <h1 class="text-4xl font-extrabold text-gray-900">@ViewData["Title"]</h1>
         <p class="mt-2 text-lg text-gray-500">
@@ -32,63 +30,48 @@
         </p>
     </header>
 
-    
+    <!-- Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
 
-        
         <div class="bg-white p-6 rounded-xl shadow-lg card-glow border-l-4 border-indigo-500">
             <div class="flex items-center justify-between">
                 <span class="text-sm font-medium text-gray-500 uppercase">Total Reservas</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
             </div>
             <p id="totalReservas" class="text-4xl font-bold mt-2 text-gray-800">—</p>
             <p class="text-xs text-gray-400 mt-1">Acumulado</p>
         </div>
 
-        
         <div class="bg-white p-6 rounded-xl shadow-lg card-glow border-l-4 border-green-500">
             <div class="flex items-center justify-between">
                 <span class="text-sm font-medium text-gray-500 uppercase">Pagadas</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
             </div>
             <p id="pagadas" class="text-4xl font-bold mt-2 text-gray-800">—</p>
             <p class="text-xs text-gray-400 mt-1">Con pago confirmado</p>
         </div>
 
-        
         <div class="bg-white p-6 rounded-xl shadow-lg card-glow border-l-4 border-red-500">
             <div class="flex items-center justify-between">
                 <span class="text-sm font-medium text-gray-500 uppercase">No Pagadas</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
             </div>
             <p id="noPagadas" class="text-4xl font-bold mt-2 text-gray-800">—</p>
             <p class="text-xs text-gray-400 mt-1">Pagos pendientes</p>
         </div>
 
-        
         <div class="bg-white p-6 rounded-xl shadow-lg card-glow border-l-4 border-sky-500">
             <div class="flex items-center justify-between">
                 <span class="text-sm font-medium text-gray-500 uppercase">Ocupadas Ahora</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sky-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
             </div>
             <p id="ocupadasAhora" class="text-4xl font-bold mt-2 text-gray-800">—</p>
-            <p id="totalHabitacionesDisplay" class="text-xs text-gray-400 mt-1">Habitaciones totales: <span id="totalHabitaciones">—</span></p>
+            <p id="totalHabitacionesDisplay" class="text-xs text-gray-400 mt-1">
+                Habitaciones totales: <span id="totalHabitaciones">—</span>
+            </p>
         </div>
 
     </div>
 
-   
+    <!-- Gráficos -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-        
         <div class="lg:col-span-1 bg-white p-6 rounded-xl shadow-lg">
             <h2 class="text-xl font-semibold text-gray-800 mb-4 border-b pb-2">Pagos (Pagadas vs No pagadas)</h2>
             <div class="h-64 flex items-center justify-center">
@@ -96,7 +79,6 @@
             </div>
         </div>
 
-        
         <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-lg">
             <h2 class="text-xl font-semibold text-gray-800 mb-4 border-b pb-2">Reservas por mes (últimos 6 meses)</h2>
             <div class="h-80">
@@ -104,7 +86,6 @@
             </div>
         </div>
 
-        
         <div class="lg:col-span-3 bg-white p-6 rounded-xl shadow-lg mt-6">
             <h2 class="text-xl font-semibold text-gray-800 mb-4 border-b pb-2">Ingresos por mes (últimos 6 meses)</h2>
             <div class="h-80">
@@ -117,67 +98,36 @@
 
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <script>
-        (function () {
-            
-            const labels = @Html.Raw(ViewData["LabelsJson"] ?? "[]");
-            const reservasCounts = @Html.Raw(ViewData["ReservasCountsJson"] ?? "[]");
-            const ingresos = @Html.Raw(ViewData["IngresosJson"] ?? "[]");
-            const pagos = @Html.Raw(ViewData["PagosJson"] ?? "[]");
+        (function() {
+            // Parsear los datos del controlador
+            const labels = JSON.parse('@Html.Raw(ViewData["LabelsJson"] ?? "[]")');
+            const reservasCounts = JSON.parse('@Html.Raw(ViewData["ReservasCountsJson"] ?? "[]")');
+            const ingresos = JSON.parse('@Html.Raw(ViewData["IngresosJson"] ?? "[]")');
+            const pagos = JSON.parse('@Html.Raw(ViewData["PagosJson"] ?? "[]")');
+            const summary = JSON.parse('@Html.Raw(ViewData["SummaryJson"] ?? "{}")');
 
-            
-            const summaryString = @Html.Raw(ViewData["SummaryJson"] ?? "{}");
-            let summary = {};
-            try {
-                
-                summary = JSON.parse(summaryString);
-            } catch (e) {
-                console.error("Error al parsear SummaryJson:", e);
-                
-            }
-
-            
-
-            
             const formatNumber = (value) => value !== null && value !== undefined ? value.toLocaleString('es-ES') : '0';
 
-            
             const safeText = (elementId, value) => {
                 const el = document.getElementById(elementId);
-                if (el) {
-                    el.textContent = formatNumber(value);
-                }
+                if (el) el.textContent = formatNumber(value);
             };
 
-            
+            // Actualizar cards
             safeText('totalReservas', summary.TotalReservas);
             safeText('pagadas', summary.Pagadas);
             safeText('noPagadas', summary.NoPagadas);
             safeText('ocupadasAhora', summary.OcupadasAhora);
+            document.getElementById('totalHabitaciones').textContent = formatNumber(summary.TotalHabitaciones);
 
-            
-            const totalHabitacionesEl = document.getElementById('totalHabitaciones');
             const totalHabitacionesDisplayEl = document.getElementById('totalHabitacionesDisplay');
-
-            const totalHabitaciones = summary.TotalHabitaciones ?? 0;
-            const ocupadasAhora = summary.OcupadasAhora ?? 0;
-
-            
-            if (totalHabitacionesEl) {
-                totalHabitacionesEl.textContent = formatNumber(totalHabitaciones);
+            if (totalHabitacionesDisplayEl && summary.TotalHabitaciones > 0) {
+                const occupancyRate = ((summary.OcupadasAhora / summary.TotalHabitaciones) * 100).toFixed(0);
+                totalHabitacionesDisplayEl.textContent = `${occupancyRate}% Ocupación | ${formatNumber(summary.TotalHabitaciones)} Habitaciones totales`;
             }
 
-            
-            if (totalHabitacionesDisplayEl && totalHabitaciones > 0) {
-                const occupancyRate = ((ocupadasAhora / totalHabitaciones) * 100).toFixed(0);
-                totalHabitacionesDisplayEl.textContent = `${occupancyRate}% Ocupación | ${formatNumber(totalHabitaciones)} Habitaciones totales`;
-            } else if (totalHabitacionesDisplayEl) {
-                 totalHabitacionesDisplayEl.textContent = `Habitaciones totales: ${formatNumber(totalHabitaciones)}`;
-            }
-
-
-            
+            // Gráfico Pagos
             const ctxPagos = document.getElementById('pagosChart')?.getContext('2d');
             if (ctxPagos) {
                 new Chart(ctxPagos, {
@@ -186,37 +136,21 @@
                         labels: ['Pagadas', 'No pagadas'],
                         datasets: [{
                             data: pagos,
-                            backgroundColor: ['#10b981', '#ef4444'], 
-                            borderColor: '#ffffff',
+                            backgroundColor: ['#10b981', '#ef4444'],
+                            borderColor: '#fff',
                             borderWidth: 4,
                             hoverOffset: 8
                         }]
                     },
                     options: {
                         responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: { position: 'bottom' },
-                            tooltip: {
-                                callbacks: {
-                                    label: function(context) {
-                                        let label = context.label || '';
-                                        if (label) { label += ': '; }
-                                        if (context.parsed !== null) {
-                                            const sum = pagos.reduce((a, b) => a + b, 0);
-                                            label += context.parsed.toFixed(0) + (sum > 0 && context.parsed < sum ? '%' : '');
-                                        }
-                                        return label;
-                                    }
-                                }
-                            }
-                        },
+                        plugins: { legend: { position: 'bottom' } },
                         cutout: '70%'
                     }
                 });
             }
 
-            
+            // Gráfico Reservas por mes
             const ctxReservas = document.getElementById('reservasMesChart')?.getContext('2d');
             if (ctxReservas) {
                 new Chart(ctxReservas, {
@@ -226,7 +160,7 @@
                         datasets: [{
                             label: 'Reservas',
                             data: reservasCounts,
-                            backgroundColor: 'rgba(99, 102, 241, 0.8)', 
+                            backgroundColor: 'rgba(99, 102, 241, 0.8)',
                             borderColor: 'rgb(99, 102, 241)',
                             borderWidth: 1,
                             borderRadius: 8,
@@ -235,23 +169,16 @@
                     },
                     options: {
                         responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: { display: false },
-                            tooltip: { mode: 'index' }
-                        },
+                        plugins: { legend: { display: false } },
                         scales: {
                             x: { grid: { display: false } },
-                            y: {
-                                beginAtZero: true,
-                                ticks: { precision: 0 }
-                            }
+                            y: { beginAtZero: true, ticks: { precision: 0 } }
                         }
                     }
                 });
             }
 
-            
+            // Gráfico Ingresos por mes
             const ctxIngresos = document.getElementById('ingresosChart')?.getContext('2d');
             if (ctxIngresos) {
                 new Chart(ctxIngresos, {
@@ -262,17 +189,16 @@
                             label: 'Ingresos',
                             data: ingresos,
                             fill: true,
-                            backgroundColor: (context) => {
-                                const chart = context.chart;
-                                const { ctx, chartArea } = chart;
+                            backgroundColor: (ctx) => {
+                                const chart = ctx.chart;
+                                const { ctx: c, chartArea } = chart;
                                 if (!chartArea) return;
-
-                                const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
-                                gradient.addColorStop(0, 'rgba(6, 182, 212, 0.1)'); 
-                                gradient.addColorStop(1, 'rgba(6, 182, 212, 0.5)'); 
+                                const gradient = c.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+                                gradient.addColorStop(0, 'rgba(6, 182, 212, 0.1)');
+                                gradient.addColorStop(1, 'rgba(6, 182, 212, 0.5)');
                                 return gradient;
                             },
-                            borderColor: 'rgb(6, 182, 212)', 
+                            borderColor: 'rgb(6, 182, 212)',
                             tension: 0.4,
                             pointRadius: 5,
                             pointBackgroundColor: 'rgb(6, 182, 212)',
@@ -281,34 +207,15 @@
                     },
                     options: {
                         responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: { display: false },
-                            tooltip: {
-                                mode: 'index',
-                                intersect: false,
-                                callbacks: {
-                                    label: function (ctx) {
-                                        const value = ctx.parsed.y ?? 0;
-                                        
-                                        return ' Ingresos: $' + value.toLocaleString('es-ES', { minimumFractionDigits: 2 });
-                                    }
-                                }
-                            }
-                        },
+                        plugins: { legend: { display: false } },
                         scales: {
                             x: { grid: { display: false } },
-                            y: {
-                                beginAtZero: true,
-                                ticks: {
-                                    
-                                    callback: v => '$' + v.toLocaleString('es-ES', { maximumFractionDigits: 0 })
-                                }
-                            }
+                            y: { ticks: { callback: v => '$' + v.toLocaleString('es-ES', { maximumFractionDigits: 0 }) }, beginAtZero: true }
                         }
                     }
                 });
             }
+
         })();
     </script>
 }
