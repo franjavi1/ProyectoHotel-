@@ -1,59 +1,103 @@
 ﻿@model IEnumerable<HotelApp.Models.Huesped>
 
 @{
-    ViewData["Title"] = "Huéspedes";
+    ViewData["Title"] = "Listado de Huéspedes";
 }
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css" />
 
-<h2 class="d-flex align-items-center" style="font-family: 'Montserrat', sans-serif; font-size: 1.8rem; color: #1a1a1a;">
-    <i class="fa-solid fa-calendar-days me-2 text-primary"></i>
-    <span>Huéspedes</span>
-</h2>
-<br />
+<style>
+    /* Usando tus colores de marca: #5a6b7a (Gris/Azul) y #ff7b00 (Naranja) */
+    .header-title {
+        color: #5a6b7a;
+    }
 
-<p>
-    <a asp-action="Create" class="btn btn-sm btn-warning"><i class="fa-solid fa-plus"></i> Nuevo huésped</a>
-</p>
+    .btn-custom-primary { /* Botón principal, similar a btn-custom del Index */
+        background-color: #5a6b7a;
+        border: none;
+        color: #fff;
+        transition: all 0.3s ease;
+        font-weight: 600;
+    }
 
-<table id="huespedesTable" class="table table-striped table-hover" style="width:100%">
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.Apellido)</th>
-            <th>@Html.DisplayNameFor(model => model.Nombre)</th>
-            <th>@Html.DisplayNameFor(model => model.Documento)</th>
-            <th>@Html.DisplayNameFor(model => model.Email)</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.Apellido)</td>
-                <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
-                <td class="text-center">@Html.DisplayFor(modelItem => item.Documento)</td>
-                <td>@Html.DisplayFor(modelItem => item.Email)</td>
-                <td class="text-nowrap">
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-dark">Editar</a>
-                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Ver</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger">Eliminar</a>
-                </td>
-            </tr>
+        .btn-custom-primary:hover {
+            background-color: #ff7b00; /* Naranja en hover */
+            color: #fff;
+            transform: scale(1.02);
         }
-    </tbody>
-</table>
+
+    .btn-outline-action { /* Botones dentro de la tabla */
+        border-color: #5a6b7a;
+        color: #5a6b7a;
+        transition: all 0.2s ease;
+    }
+
+        .btn-outline-action:hover {
+            background-color: #5a6b7a;
+            color: #fff;
+        }
+</style>
+
+<div class="d-flex justify-content-between align-items-center mb-4 mt-3">
+    <h2 class="header-title fw-bold m-0 d-flex align-items-center">
+        <i class="fa-solid fa-users me-3 fs-3"></i>
+        Listado de Huéspedes
+    </h2>
+    <a asp-action="Create" class="btn btn-custom-primary btn-lg shadow-sm">
+        <i class="fa-solid fa-user-plus me-2"></i> Nuevo Huésped
+    </a>
+</div>
+
+<hr class="mb-4" style="border-top: 2px solid #ff7b00; width: 100px; margin-left: 0;">
+
+
+<div class="card shadow-sm">
+    <div class="card-body p-4">
+        <table id="huespedesTable" class="table table-striped table-hover responsive nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Apellido)</th>
+                    <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+                    <th class="text-center">@Html.DisplayNameFor(model => model.Documento)</th>
+                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Apellido)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                        <td class="text-center">@Html.DisplayFor(modelItem => item.Documento)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td class="text-center text-nowrap">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-action" title="Editar Huésped">
+                                <i class="fa-solid fa-pen"></i>
+                            </a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-action" title="Ver Detalles">
+                                <i class="fa-solid fa-eye"></i>
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger" title="Eliminar Huésped">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
 
 @section Scripts {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-
     <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
-
     <script>
+        // ... Tu código JavaScript de DataTables ...
         (function () {
             $(document).ready(function () {
                 $('#huespedesTable').DataTable({
@@ -61,18 +105,10 @@
                     language: {
                         url: 'https://cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json'
                     },
-                    order: [[0, 'asc']], // ordenar por Apellido
+                    order: [[0, 'asc']],
                     columnDefs: [
-                        {
-                            targets: -1, // acciones
-                            orderable: false,
-                            searchable: false,
-                            className: 'text-nowrap'
-                        },
-                        {
-                            targets: 2, // Documento
-                            className: 'text-center'
-                        }
+                        { targets: -1, orderable: false, searchable: false, className: 'text-center text-nowrap' },
+                        { targets: 2, className: 'text-center' }
                     ]
                 });
             });

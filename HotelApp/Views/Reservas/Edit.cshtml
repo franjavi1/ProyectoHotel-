@@ -1,64 +1,155 @@
-﻿@model HotelApp.Models.Reserva
+﻿<style>
+    
+
+
+    .header-title {
+        color: #5a6b7a;
+        font-weight: 700;
+        margin-bottom: 0;
+    }
+
+    
+    .form-card {
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        background-color: #ffffff;
+    }
+
+    
+    .btn-custom-edit {
+        background-color: #ff7b00 !important;
+        border: none;
+        color: #fff;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        border-radius: 8px;
+    }
+
+        .btn-custom-edit:hover {
+            background-color: #e96f00 !important; 
+            transform: scale(1.02);
+        }
+
+
+    .btn-secondary-outline {
+        color: #5a6b7a;
+        border: 1px solid #5a6b7a;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        border-radius: 8px;
+    }
+
+        .btn-secondary-outline:hover {
+            background-color: #5a6b7a;
+            color: white;
+        }
+
+
+    .form-control, .form-select {
+        border-radius: 8px;
+        padding: 10px 15px;
+        box-shadow: none;
+        transition: border-color 0.2s;
+    }
+
+        .form-control:focus, .form-select:focus {
+            border-color: #5a6b7a; 
+            box-shadow: 0 0 0 0.25rem rgba(90, 107, 122, 0.25);
+        }
+
+    
+    .control-label {
+        font-weight: 600;
+        color: #5a6b7a;
+        margin-bottom: 0.25rem;
+    }
+</style>
+@model HotelApp.Models.Reserva
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Reserva";
 }
 
-<h1>Edit</h1>
+<div class="d-flex align-items-center mb-4 mt-3">
+    <h2 class="header-title m-0 d-flex align-items-center">
+        <i class="fa-solid fa-pen-to-square me-3 fs-3"></i>
+        Editar Reserva
+    </h2>
+</div>
 
-<h4>Reserva</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="HuespedId" class="control-label"></label>
-                <select asp-for="HuespedId" class="form-control" asp-items="ViewBag.HuespedId"></select>
-                <span asp-validation-for="HuespedId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="HabitacionId" class="control-label"></label>
-                <select asp-for="HabitacionId" class="form-control" asp-items="ViewBag.HabitacionId"></select>
-                <span asp-validation-for="HabitacionId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EmpleadoId" class="control-label"></label>
-                <select asp-for="EmpleadoId" class="form-control" asp-items="ViewBag.EmpleadoId"></select>
-                <span asp-validation-for="EmpleadoId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechaEntrada" class="control-label"></label>
-                <input asp-for="FechaEntrada" class="form-control" />
-                <span asp-validation-for="FechaEntrada" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechaSalida" class="control-label"></label>
-                <input asp-for="FechaSalida" class="form-control" />
-                <span asp-validation-for="FechaSalida" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PrecioTotal" class="control-label"></label>
-                <input asp-for="PrecioTotal" class="form-control" />
-                <span asp-validation-for="PrecioTotal" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Pagado" /> @Html.DisplayNameFor(model => model.Pagado)
-                </label>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<hr class="mb-5" style="border-top: 2px solid #ff7b00; width: 100px; margin-left: 0;">
+
+<div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10">
+        <div class="form-card">
+            <h4 class="mb-4" style="color: #5a6b7a; border-bottom: 2px solid #eee; padding-bottom: 10px;">
+                Modificar Detalles de la Reserva
+            </h4>
+
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group mb-4">
+                            <label asp-for="HuespedId" class="control-label">Huésped</label>
+                            <select asp-for="HuespedId" class="form-control form-select" asp-items="ViewBag.HuespedId"></select>
+                            <span asp-validation-for="HuespedId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label asp-for="HabitacionId" class="control-label">Habitación</label>
+                            <select asp-for="HabitacionId" class="form-control form-select" asp-items="ViewBag.HabitacionId"></select>
+                            <span asp-validation-for="HabitacionId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label asp-for="EmpleadoId" class="control-label">Empleado</label>
+                            <select asp-for="EmpleadoId" class="form-control form-select" asp-items="ViewBag.EmpleadoId"></select>
+                            <span asp-validation-for="EmpleadoId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group form-check mb-4 mt-4">
+                            <input class="form-check-input" type="checkbox" asp-for="Pagado" style="width: 20px; height: 20px;" />
+                            <label class="form-check-label ms-2 control-label" asp-for="Pagado">
+                                Pago Confirmado
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group mb-4">
+                            <label asp-for="FechaEntrada" class="control-label">Fecha de Entrada</label>
+                            <input asp-for="FechaEntrada" class="form-control" type="date" />
+                            <span asp-validation-for="FechaEntrada" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label asp-for="FechaSalida" class="control-label">Fecha de Salida</label>
+                            <input asp-for="FechaSalida" class="form-control" type="date" />
+                            <span asp-validation-for="FechaSalida" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label asp-for="PrecioTotal" class="control-label">Precio Total</label>
+                            <input asp-for="PrecioTotal" class="form-control" />
+                            <span asp-validation-for="PrecioTotal" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end mt-4 pt-3 border-top">
+                    <a asp-action="Index" class="btn btn-secondary-outline me-3">
+                        <i class="fa-solid fa-arrow-left me-2"></i> Cancelar
+                    </a>
+                    <button type="submit" class="btn btn-custom-edit">
+                        <i class="fa-solid fa-save me-2"></i> Guardar Cambios
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
