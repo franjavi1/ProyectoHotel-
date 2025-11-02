@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "Q5ghs0pZlXQ=",
   "success": true,
   "projectFilePath": "C:\\Users\\Usuario\\Source\\Repos\\ProyectoHotel-\\LogicaDeNegocio\\LogicaDeNegocio.csproj",
+=======
+  "dgSpecHash": "gbCAtz9t+/M=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\franc\\Desktop\\TP ASP NET 10\\ProyectoHotel-\\LogicaDeNegocio\\LogicaDeNegocio.csproj",
+>>>>>>> 611becdc4c55470597ea5151faf7fefcfbe21e49
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

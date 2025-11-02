@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 
+
+[Authorize(Roles = "Administrador")] // ✅ Solo administradores pueden entrar
 public class EstadisticasController : Controller
 {
     public IActionResult Index()

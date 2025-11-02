@@ -7808,11 +7808,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Usuario\\Source\\Repos\\ProyectoHotel-\\HotelApp\\HotelWeb.csproj",
       "projectName": "HotelWeb",
       "projectPath": "C:\\Users\\Usuario\\Source\\Repos\\ProyectoHotel-\\HotelApp\\HotelWeb.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Usuario\\Source\\Repos\\ProyectoHotel-\\HotelApp\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\franc\\Desktop\\TP ASP NET 10\\ProyectoHotel-\\HotelApp\\HotelWeb.csproj",
+      "projectName": "HotelWeb",
+      "projectPath": "C:\\Users\\franc\\Desktop\\TP ASP NET 10\\ProyectoHotel-\\HotelApp\\HotelWeb.csproj",
+      "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\franc\\Desktop\\TP ASP NET 10\\ProyectoHotel-\\HotelApp\\obj\\",
+>>>>>>> 611becdc4c55470597ea5151faf7fefcfbe21e49
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -7834,8 +7842,13 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\Usuario\\Source\\Repos\\ProyectoHotel-\\LogicaDeNegocio\\LogicaDeNegocio.csproj": {
               "projectPath": "C:\\Users\\Usuario\\Source\\Repos\\ProyectoHotel-\\LogicaDeNegocio\\LogicaDeNegocio.csproj"
+=======
+            "C:\\Users\\franc\\Desktop\\TP ASP NET 10\\ProyectoHotel-\\LogicaDeNegocio\\LogicaDeNegocio.csproj": {
+              "projectPath": "C:\\Users\\franc\\Desktop\\TP ASP NET 10\\ProyectoHotel-\\LogicaDeNegocio\\LogicaDeNegocio.csproj"
+>>>>>>> 611becdc4c55470597ea5151faf7fefcfbe21e49
             }
           }
         }

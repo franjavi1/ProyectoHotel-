@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HotelApp.Models;
 using LogicaDeNegocio.Data;
@@ -20,44 +18,53 @@ namespace HotelWeb.Controllers
             _context = context;
         }
 
-        // GET: Habitacions
+        // 🔹 Método para verificar si el usuario es Administrador
+        private bool EsAdministrador()
+        {
+            // Tomamos el email del claim
+            var email = User.Claims.FirstOrDefault(c => c.Type == System.Security.Claims.ClaimTypes.Email)?.Value;
+            if (string.IsNullOrEmpty(email)) return false;
+
+            var empleado = _context.Empleados.FirstOrDefault(e => e.Email == email);
+            return empleado != null && empleado.Rol == "Administrador";
+        }
+
+
+        // GET: Habitaciones
         public async Task<IActionResult> Index()
         {
-            await ActualizarDisponibilidadHabitaciones(); // 🔄 Actualiza la disponibilidad automáticamente
+            await ActualizarDisponibilidadHabitaciones();
             var habitaciones = await _context.Habitaciones.ToListAsync();
             return View(habitaciones);
         }
-        // GET: Habitacions/Details/5
+
+        // GET: Habitaciones/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var habitacion = await _context.Habitaciones
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (habitacion == null)
-            {
-                return NotFound();
-            }
+
+            if (habitacion == null) return NotFound();
 
             return View(habitacion);
         }
 
-        // GET: Habitacions/Create
+        // GET: Habitaciones/Create
         public IActionResult Create()
         {
+            if (!EsAdministrador()) return Forbid();
             return View();
         }
 
-        // POST: Habitacions/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Habitaciones/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Numero,Tipo,Piso,Precio,Disponible")] Habitacion habitacion)
         {
+            if (!EsAdministrador()) return Forbid();
+
             if (ModelState.IsValid)
             {
                 _context.Add(habitacion);
@@ -67,33 +74,25 @@ namespace HotelWeb.Controllers
             return View(habitacion);
         }
 
-        // GET: Habitacions/Edit/5
+        // GET: Habitaciones/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (!EsAdministrador()) return Forbid();
+            if (id == null) return NotFound();
 
             var habitacion = await _context.Habitaciones.FindAsync(id);
-            if (habitacion == null)
-            {
-                return NotFound();
-            }
+            if (habitacion == null) return NotFound();
+
             return View(habitacion);
         }
 
-        // POST: Habitacions/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Habitaciones/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Numero,Tipo,Piso,Precio,Disponible")] Habitacion habitacion)
         {
-            if (id != habitacion.Id)
-            {
-                return NotFound();
-            }
+            if (!EsAdministrador()) return Forbid();
+            if (id != habitacion.Id) return NotFound();
 
             if (ModelState.IsValid)
             {
@@ -104,46 +103,38 @@ namespace HotelWeb.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!HabitacionExists(habitacion.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    if (!_context.Habitaciones.Any(e => e.Id == habitacion.Id)) return NotFound();
+                    else throw;
                 }
                 return RedirectToAction(nameof(Index));
             }
             return View(habitacion);
         }
 
-        // GET: Habitacions/Delete/5
+        // GET: Habitaciones/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (!EsAdministrador()) return Forbid();
+            if (id == null) return NotFound();
 
             var habitacion = await _context.Habitaciones
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (habitacion == null)
-            {
-                return NotFound();
-            }
+            if (habitacion == null) return NotFound();
 
             return View(habitacion);
         }
 
-        // POST: Habitacions/Delete/5
+        // POST: Habitaciones/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            if (!EsAdministrador()) return Forbid();
+
             var habitacion = await _context.Habitaciones.FindAsync(id);
             if (habitacion != null)
             {
+<<<<<<< HEAD
                 try
                 {
                     _context.Habitaciones.Remove(habitacion);
@@ -163,14 +154,13 @@ namespace HotelWeb.Controllers
             }
 
             
+=======
+                _context.Habitaciones.Remove(habitacion);
+                await _context.SaveChangesAsync();
+            }
+>>>>>>> 611becdc4c55470597ea5151faf7fefcfbe21e49
             return RedirectToAction(nameof(Index));
         }
-
-        private bool HabitacionExists(int id)
-        {
-            return _context.Habitaciones.Any(e => e.Id == id);
-        }
-
 
         private async Task ActualizarDisponibilidadHabitaciones()
         {
@@ -179,7 +169,6 @@ namespace HotelWeb.Controllers
 
             foreach (var habitacion in habitaciones)
             {
-                // Verifica si hay alguna reserva vigente hoy
                 var ocupada = reservas.Any(r =>
                     r.HabitacionId == habitacion.Id &&
                     r.FechaEntrada <= DateTime.Now &&
@@ -191,5 +180,8 @@ namespace HotelWeb.Controllers
 
             await _context.SaveChangesAsync();
         }
+
+
+
     }
 }
