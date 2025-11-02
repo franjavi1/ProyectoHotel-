@@ -210,7 +210,7 @@ namespace HotelWeb.Controllers
             var reserva = await _context.Reservas
                 .Include(r => r.Empleado)
                 .Include(r => r.Habitacion)
-                .Include(r => r.Huesped)
+                .Include(r => r.Huesped) 
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (reserva == null)
             {

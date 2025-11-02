@@ -31,5 +31,7 @@ namespace HotelApp.Models
         [Required]
         public bool Pagado { get; set; } = false;
 
+        [Required]
+        public int Status { get; set; }
     }
 }

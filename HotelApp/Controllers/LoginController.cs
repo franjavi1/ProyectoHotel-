@@ -63,7 +63,7 @@ namespace HotelWeb.Controllers
                     {
                         "franciscojavierstevenin@gmail.com",
                         "compañero1@gmail.com",
-                        "diego_rg@hotmail.com",
+                        "luis271277@gmail.com",
                         "diego.r.gallo@gmail.com"
                     };
 
