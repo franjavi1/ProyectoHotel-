@@ -11,22 +11,38 @@
 }
 
 <style>
-    body {
-        background-color: #f8f9fa; /* fondo claro como el layout */
-        color: #212529;
+    /* Mantenemos tus estilos CSS... */
+    .page-main {
+        padding: 0; /* Quitamos el padding superior e inferior para el Hero de ancho completo */
+        min-height: 100vh;
     }
 
-    h1 {
-        letter-spacing: 1px;
+    /* Estilos específicos para el Carousel (Hero) */
+    .carousel-item {
+        height: 60vh; /* Altura que ocupa el slider */
+        min-height: 300px;
+        background: no-repeat center center scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
     }
 
+    .carousel-caption {
+        background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro semitransparente para el texto */
+        padding: 20px;
+        border-radius: 5px;
+        bottom: 50%; /* Centra el texto verticalmente */
+        transform: translateY(50%);
+    }
+
+    /* Tus estilos de botones personalizados... */
     .btn {
         transition: all 0.3s ease;
         border-radius: 10px;
         font-weight: 600;
     }
 
-    /* Botón principal (Ver Reservas) */
     .btn-custom {
         background-color: #5a6b7a;
         border: none;
@@ -38,43 +54,108 @@
             color: #fff;
             transform: scale(1.05);
         }
-
-    /* Botón secundario (Registrar Huésped) */
-    .btn-orange {
-        background-color: #5a6b7a;
-        border: none;
-        color: #fff;
-    }
-
-        .btn-orange:hover {
-            background-color: #ff7b00;
-            color: #fff;
-            transform: scale(1.05);
-        }
-
-    /* Contenedor de la página */
-    .page-main {
-        padding: 2rem 1rem;
-        background-color: #f8f9fa; /* claro */
-        color: #212529;
-        min-height: 100vh;
-    }
+    /* ... (deja el resto de tus estilos de botones) */
 </style>
 
-<div class="page-main text-center">
-    <h1 class="display-4 fw-bold text-dark">🏨 HotelWEB</h1>
-    <p class="lead text-secondary">Tu panel de gestión hotelera fácil, rápido y moderno</p>
-    <hr class="mx-auto" style="width: 200px; border-top: 2px solid #ff7b00;">
-    <div class="mt-4">
-        <a asp-controller="Reservas" asp-action="Index" class="btn btn-custom btn-lg me-2">
+<div class="page-main">
+
+    <div id="hotelCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#hotelCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#hotelCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#hotelCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+
+            <div class="carousel-item active" style="background-image: url('/habitacion001.jpg');">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="display-4 fw-bold text-white">Gestión de Reservas sin Esfuerzo</h1>
+                    <p class="lead text-white-50">Administra todas tus reservas y huéspedes en un solo lugar.</p>
+                    <a asp-controller="Reservas" asp-action="Index" class="btn btn-custom btn-lg mt-3">
+                        <i class="fa-solid fa-calendar-days me-2"></i> Ver Calendario
+                    </a>
+                </div>
+            </div>
+
+            <div class="carousel-item" style="background-image: url('/piscina002.jpg');">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="display-4 fw-bold text-white">Registro de Huéspedes Rápido</h1>
+                    <p class="lead text-white-50">Nuevo huésped en 30 segundos. Maximiza tu check-in.</p>
+                    <a asp-controller="Huespedes" asp-action="Create" class="btn btn-custom btn-lg mt-3">
+                        <i class="fa-solid fa-user-plus me-2"></i> Nuevo Huésped
+                    </a>
+                </div>
+            </div>
+
+            <div class="carousel-item" style="background-image: url('/lobby003.jpg');">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="display-4 fw-bold text-white">Todo el Hotel, al Instante</h1>
+                    <p class="lead text-white-50">Accede a reportes y disponibilidad en tiempo real.</p>
+                    <a asp-controller="Reportes" asp-action="Index" class="btn btn-custom btn-lg mt-3">
+                        <i class="fa-solid fa-chart-line me-2"></i> Ver Reportes
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#hotelCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#hotelCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+    </div>
+    <div class="container my-5">
+        <h2 class="text-center mb-4 fw-bold" style="color: #5a6b7a;">Módulos de Acceso Rápido</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <div class="col">
+                <div class="card h-100 shadow-sm text-center">
+                    <div class="card-body">
+                        <i class="fa-solid fa-bed fa-3x mb-3" style="color: #ff7b00;"></i>
+                        <h5 class="card-title fw-semibold">Disponibilidad</h5>
+                        <p class="card-text text-secondary">Consulta el estado actual de todas las habitaciones.</p>
+                        <a asp-controller="Habitaciones" asp-action="Index" class="btn btn-outline-secondary mt-2">Explorar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm text-center">
+                    <div class="card-body">
+                        <i class="fa-solid fa-bell-concierge fa-3x mb-3" style="color: #ff7b00;"></i>
+                        <h5 class="card-title fw-semibold">Servicios Extra</h5>
+                        <p class="card-text text-secondary">Registra consumos, lavandería y peticiones especiales.</p>
+                        <a asp-controller="Servicios" asp-action="Index" class="btn btn-outline-secondary mt-2">Gestionar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm text-center">
+                    <div class="card-body">
+                        <i class="fa-solid fa-file-invoice-dollar fa-3x mb-3" style="color: #ff7b00;"></i>
+                        <h5 class="card-title fw-semibold">Cierre de Cuenta</h5>
+                        <p class="card-text text-secondary">Genera facturas y realiza el Check-out de forma sencilla.</p>
+                        <a asp-controller="Facturacion" asp-action="Index" class="btn btn-outline-secondary mt-2">Cerrar Cuenta</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="mx-auto my-5" style="width: 50%; border-top: 2px solid #5a6b7a;">
+
+    <div class="text-center pb-5">
+        <h3 class="fw-semibold mb-4 text-dark">¿Qué necesitas hacer ahora?</h3>
+        <a asp-controller="Reservas" asp-action="Index" class="btn btn-custom btn-lg me-3 shadow-lg">
             <i class="fa-solid fa-calendar-days me-2"></i> Ver Reservas
         </a>
-        <a asp-controller="Huespedes" asp-action="Index" class="btn btn-orange btn-lg">
-            <i class="fa-solid fa-user-plus me-2"></i> Registrar Huésped
+        <a asp-controller="Huespedes" asp-action="Create" class="btn btn-custom btn-lg shadow-lg">
+            <i class="fa-solid fa-user-plus me-2"></i> Nuevo Check-In
         </a>
     </div>
 
-    <div class="mt-5">
-        <img src="~/habitacion001.jpg" alt="Logo del Hotel" style="max-width: 500px;" />
-    </div>
 </div>
