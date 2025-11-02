@@ -2324,3 +2324,4 @@ C:\Users\franc\Desktop\TP ASP NET 9\ProyectoHotel-\HotelApp\obj\Debug\net8.0\ref
 C:\Users\franc\Desktop\TP ASP NET 9\ProyectoHotel-\HotelApp\obj\Debug\net8.0\HotelWeb.pdb
 C:\Users\franc\Desktop\TP ASP NET 9\ProyectoHotel-\HotelApp\obj\Debug\net8.0\HotelWeb.genruntimeconfig.cache
 C:\Users\franc\Desktop\TP ASP NET 9\ProyectoHotel-\HotelApp\obj\Debug\net8.0\ref\HotelWeb.dll
+C:\Users\Usuario\Source\Repos\ProyectoHotel-\HotelApp\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Google.dll

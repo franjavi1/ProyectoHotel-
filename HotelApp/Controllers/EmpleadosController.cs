@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using HotelApp.Models;
 using LogicaDeNegocio.Data;
 using Microsoft.Data.SqlClient;
+using HotelWeb.Helpers;
 
 namespace HotelWeb.Controllers
 {
@@ -149,7 +150,7 @@ namespace HotelWeb.Controllers
                     await _context.SaveChangesAsync();
                     
                 } 
-                catch (DbUpdateException ex) when (IsForeignKeyViolation(ex))
+                catch (DbUpdateException ex) when (SqlExceptionHelper.IsForeignKeyViolation(ex))
                 {
                     // Mensaje claro para el usuario
                     TempData["Error"] = "No se puede eliminar porque tiene reservas asociadas.";
@@ -167,6 +168,7 @@ namespace HotelWeb.Controllers
 
         }
 
+        /* La muevo al Helper asi la pueden usar todos
         // Detecta violación de FK en SQL Server (error 547)
         private static bool IsForeignKeyViolation(DbUpdateException ex)
         {
@@ -174,7 +176,7 @@ namespace HotelWeb.Controllers
             if (ex.InnerException is SqlException sql && sql.Number == 547) return true;
             if (ex.GetBaseException() is SqlException b && b.Number == 547) return true;
             return false;
-        }
+        }*/
 
         private bool EmpleadoExists(int id)
         {

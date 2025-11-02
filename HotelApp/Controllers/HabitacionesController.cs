@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HotelApp.Models;
 using LogicaDeNegocio.Data;
+using HotelWeb.Helpers;
 
 namespace HotelWeb.Controllers
 {
@@ -143,10 +144,25 @@ namespace HotelWeb.Controllers
             var habitacion = await _context.Habitaciones.FindAsync(id);
             if (habitacion != null)
             {
-                _context.Habitaciones.Remove(habitacion);
+                try
+                {
+                    _context.Habitaciones.Remove(habitacion);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException ex) when (SqlExceptionHelper.IsForeignKeyViolation(ex))
+                {
+                    // Mensaje claro para el usuario
+                    TempData["Error"] = "No se puede eliminar porque tiene reservas asociadas.";
+
+                }
+                catch (Exception)
+                {
+                    TempData["Error"] = "Ocurrió un error al eliminar el registro.";
+
+                }
             }
 
-            await _context.SaveChangesAsync();
+            
             return RedirectToAction(nameof(Index));
         }
 
