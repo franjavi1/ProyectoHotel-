@@ -134,7 +134,6 @@ namespace HotelWeb.Controllers
             var habitacion = await _context.Habitaciones.FindAsync(id);
             if (habitacion != null)
             {
-<<<<<<< HEAD
                 try
                 {
                     _context.Habitaciones.Remove(habitacion);
@@ -152,13 +151,6 @@ namespace HotelWeb.Controllers
 
                 }
             }
-
-            
-=======
-                _context.Habitaciones.Remove(habitacion);
-                await _context.SaveChangesAsync();
-            }
->>>>>>> 611becdc4c55470597ea5151faf7fefcfbe21e49
             return RedirectToAction(nameof(Index));
         }
 

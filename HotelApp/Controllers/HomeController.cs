@@ -33,7 +33,8 @@ namespace HotelApp.Controllers
             var allowedEmails = new List<string>
             {
                 "franciscojavierstevenin@gmail.com",
-                "diego_rg@hotmail.com"
+                "diego_rg@hotmail.com",
+                "diego.r.gallo@gmail.com"
             };
 
             // Verificar si es administrador

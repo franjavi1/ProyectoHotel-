@@ -1,16 +1,13 @@
 ﻿using HotelApp.Models;
 using LogicaDeNegocio.Data;
-<<<<<<< HEAD
 using Microsoft.Data.SqlClient;
 using HotelWeb.Helpers;
-=======
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using System.Linq;
 using System;
->>>>>>> 611becdc4c55470597ea5151faf7fefcfbe21e49
 
 namespace HotelWeb.Controllers
 {
@@ -118,23 +115,21 @@ namespace HotelWeb.Controllers
                 try
                 {
                     _context.Empleados.Remove(empleado);
-                    await _context.SaveChangesAsync();
-<<<<<<< HEAD
-                    
-                } 
-                catch (DbUpdateException ex) when (SqlExceptionHelper.IsForeignKeyViolation(ex))
-=======
+                    await _context.SaveChangesAsync();     
                 }
-                catch (DbUpdateException)
->>>>>>> 611becdc4c55470597ea5151faf7fefcfbe21e49
+                catch (DbUpdateException ex) when (SqlExceptionHelper.IsForeignKeyViolation(ex))
                 {
+                    // Mensaje claro para el usuario
                     TempData["Error"] = "No se puede eliminar porque tiene reservas asociadas.";
+
+                }
+                catch (Exception)
+                {
+                    TempData["Error"] = "Ocurrió un error al eliminar el registro.";
+
                 }
             }
             return RedirectToAction(nameof(Index));
-<<<<<<< HEAD
-
-
         }
 
         /* La muevo al Helper asi la pueden usar todos
@@ -150,8 +145,6 @@ namespace HotelWeb.Controllers
         private bool EmpleadoExists(int id)
         {
             return _context.Empleados.Any(e => e.Id == id);
-=======
->>>>>>> 611becdc4c55470597ea5151faf7fefcfbe21e49
         }
     }
 }
