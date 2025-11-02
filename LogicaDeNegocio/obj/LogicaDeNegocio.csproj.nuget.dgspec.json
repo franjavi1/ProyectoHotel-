@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\franc\\Desktop\\TP ASP NET 9\\ProyectoHotel-\\LogicaDeNegocio\\LogicaDeNegocio.csproj": {}
+    "C:\\Users\\franc\\Desktop\\TP ASP NET 10\\ProyectoHotel-\\LogicaDeNegocio\\LogicaDeNegocio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\franc\\Desktop\\TP ASP NET 9\\ProyectoHotel-\\LogicaDeNegocio\\LogicaDeNegocio.csproj": {
+    "C:\\Users\\franc\\Desktop\\TP ASP NET 10\\ProyectoHotel-\\LogicaDeNegocio\\LogicaDeNegocio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\franc\\Desktop\\TP ASP NET 9\\ProyectoHotel-\\LogicaDeNegocio\\LogicaDeNegocio.csproj",
+        "projectUniqueName": "C:\\Users\\franc\\Desktop\\TP ASP NET 10\\ProyectoHotel-\\LogicaDeNegocio\\LogicaDeNegocio.csproj",
         "projectName": "LogicaDeNegocio",
-        "projectPath": "C:\\Users\\franc\\Desktop\\TP ASP NET 9\\ProyectoHotel-\\LogicaDeNegocio\\LogicaDeNegocio.csproj",
+        "projectPath": "C:\\Users\\franc\\Desktop\\TP ASP NET 10\\ProyectoHotel-\\LogicaDeNegocio\\LogicaDeNegocio.csproj",
         "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\franc\\Desktop\\TP ASP NET 9\\ProyectoHotel-\\LogicaDeNegocio\\obj\\",
+        "outputPath": "C:\\Users\\franc\\Desktop\\TP ASP NET 10\\ProyectoHotel-\\LogicaDeNegocio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

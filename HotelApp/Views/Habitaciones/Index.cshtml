@@ -1,21 +1,104 @@
 ﻿@model IEnumerable<HotelApp.Models.Habitacion>
+@inject LogicaDeNegocio.Data.AppDbContext _context
 
-@{
-    ViewData["Title"] = "Habitaciones";
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css" />
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+
+<h2 class="d-flex align-items-center" style="font-family: 'Montserrat', sans-serif; font-size: 1.8rem; color: #1a1a1a;">
+    <i class="fa-solid fa-bed me-2 text-primary"></i>
+    <span>Habitaciones</span>
+
+</h2>
+<br />
+
+@functions {
+    bool EsAdministrador()
+    {
+        var email = User.Claims.FirstOrDefault(c => c.Type == System.Security.Claims.ClaimTypes.Email)?.Value;
+        if (string.IsNullOrEmpty(email)) return false;
+        var empleado = _context.Empleados.FirstOrDefault(e => e.Email == email);
+        return empleado != null && empleado.Rol == "Administrador";
+    }
 }
 
 
-<div class="container habitaciones-container py-3">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2 class="fw-bold text-dark mb-0">
-            <i class="fa-solid fa-door-closed me-2 text-warning"></i> Habitaciones
-        </h2>
-        <a asp-action="Create" class="btn btn-warning shadow-sm fw-semibold">
-            <i class="fa-solid fa-plus"></i> Nueva Habitación
-        </a>
-    </div>
 
-    @if (Model == null || !Model.Any())
+@if (EsAdministrador())
+{
+    <a asp-action="Create" class="btn btn-warning mb-3">
+        <i class="fa-solid fa-plus"></i> Nueva Habitación
+    </a>
+}
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">No hay habitaciones registradas.</div>
+}
+else
+{
+    <div class="row">
+        @foreach (var habitacion in Model)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <!-- Cabecera -->
+                    <div class="card-header bg-dark text-light d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">
+                            <i class="fa-solid fa-bed text-warning me-2"></i>
+                            Habitación @habitacion.Numero
+                        </h5>
+
+                        @if (habitacion.Disponible)
+                        {
+                            <span class="badge bg-success">Disponible</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger">Ocupada</span>
+                        }
+                    </div>
+                    <!-- Cuerpo -->
+                    <div class="card-body bg-light text-dark">
+                        <p class="mb-2">
+                            <i class="fa-solid fa-layer-group text-secondary me-2"></i>
+                            <strong>Piso:</strong> @habitacion.Piso
+                        </p>
+                        <p class="mb-2">
+                            <i class="fa-solid fa-door-open text-secondary me-2"></i>
+                            <strong>Tipo:</strong> @habitacion.Tipo
+                        </p>
+                        <p class="mb-0">
+                            <i class="fa-solid fa-money-bill-wave text-secondary me-2"></i>
+                            <strong>Precio:</strong> $@habitacion.Precio
+                        </p>
+                    </div>
+                    <div class="card-footer bg-white d-flex justify-content-between">
+                        @if (EsAdministrador())
+                        {
+                            <a asp-action="Edit" asp-route-id="@habitacion.Id" class="btn btn-sm btn-outline-dark">
+                                <i class="fa-solid fa-pen-to-square"></i> Editar
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@habitacion.Id" class="btn btn-sm btn-outline-danger">
+                                <i class="fa-solid fa-trash"></i> Eliminar
+                            </a>
+                        }
+                        <a asp-action="Details" asp-route-id="@habitacion.Id" class="btn btn-sm btn-outline-secondary">
+                            <i class="fa-solid fa-eye"></i> Ver
+                        </a>
+                    </div>
+
+            
+                </div>
+            </div>
+        }
+    </div>
+}
+
+
+
+@*     @if (Model == null || !Model.Any())
     {
         <div class="alert alert-info text-center">
             <i class="fa-solid fa-circle-info me-2"></i>
@@ -81,7 +164,7 @@
             }
         </div>
     }
-</div>
+</div> *@
 
 <style>
     /* ==== GENERAL ==== */

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jeiu/kUGZCM=",
+  "dgSpecHash": "s0uHUNzl/cA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\franc\\Desktop\\TP ASP NET 9\\ProyectoHotel-\\HotelApp\\HotelWeb.csproj",
+  "projectFilePath": "C:\\Users\\franc\\Desktop\\TP ASP NET 10\\ProyectoHotel-\\HotelApp\\HotelWeb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\franc\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\franc\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

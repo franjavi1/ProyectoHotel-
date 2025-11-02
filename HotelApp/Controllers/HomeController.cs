@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using HotelApp.Models;
 using LogicaDeNegocio.Data;
+using System.Security.Claims;
 
 namespace HotelApp.Controllers
 {
@@ -25,6 +26,22 @@ namespace HotelApp.Controllers
 
         public async Task<IActionResult> Privacy()
         {
+            // Obtener correo real del usuario autenticado
+            var userEmail = User.FindFirst(ClaimTypes.Email)?.Value ?? "";
+
+            // Lista de administradores
+            var allowedEmails = new List<string>
+            {
+                "franciscojavierstevenin@gmail.com",
+                "diego_rg@hotmail.com"
+            };
+
+            // Verificar si es administrador
+            if (!allowedEmails.Contains(userEmail))
+            {
+                return RedirectToAction("AccessDenied");
+            }
+
             // Periodo: últimos 6 meses (incluye mes actual)
             var now = DateTime.Now;
             var startMonth = new DateTime(now.Year, now.Month, 1).AddMonths(-5);
@@ -60,7 +77,7 @@ namespace HotelApp.Controllers
             var ocupadasAhora = await _context.Reservas
                 .CountAsync(r => r.FechaEntrada <= now && r.FechaSalida >= now);
 
-            // Pasar datos a la vista como JSON (se inyectarán directamente en JS)
+            // Pasar datos a la vista como JSON
             ViewData["LabelsJson"] = JsonSerializer.Serialize(labels);
             ViewData["ReservasCountsJson"] = JsonSerializer.Serialize(reservasCounts);
             ViewData["IngresosJson"] = JsonSerializer.Serialize(ingresos);
@@ -78,12 +95,16 @@ namespace HotelApp.Controllers
             return View();
         }
 
+        public IActionResult AccessDenied()
+        {
+            ViewData["Title"] = "Acceso Denegado";
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
-
     }
 }
