@@ -1,36 +1,129 @@
 ﻿@model HotelApp.Models.Empleado
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles de Empleado";
 }
 
-<h1>Details</h1>
+<style>
+    /* Usando tus colores de marca: #5a6b7a (Gris/Azul) y #ff7b00 (Naranja) */
 
-<div>
-    <h4>Empleado</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Rol)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Rol)
-        </dd>
-    </dl>
+    /* Encabezado */
+    .header-title {
+        color: #5a6b7a;
+        font-weight: 700;
+        margin-bottom: 0;
+    }
+
+    /* Contenedor de Detalles (Card) */
+    .details-card {
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        padding: 30px;
+        background-color: #ffffff;
+    }
+
+    /* Lista de Definición (DL) */
+    .dl-horizontal dt {
+        font-weight: 700;
+        color: #5a6b7a; /* Gris/Azul para las etiquetas */
+        margin-bottom: 10px;
+    }
+
+    .dl-horizontal dd {
+        margin-bottom: 10px;
+        font-size: 1.05rem; /* Ligeramente más grande para los datos */
+    }
+
+    /* Botón Principal (Editar) */
+    .btn-custom-edit {
+        background-color: #ff7b00 !important; /* Naranja para editar */
+        border: none;
+        color: #fff;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 8px 20px;
+    }
+
+        .btn-custom-edit:hover {
+            background-color: #e96f00 !important;
+            transform: scale(1.02);
+        }
+
+    /* Botón Secundario (Volver) */
+    .btn-secondary-outline {
+        color: #5a6b7a;
+        border: 1px solid #5a6b7a;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 8px 20px;
+    }
+
+        .btn-secondary-outline:hover {
+            background-color: #5a6b7a;
+            color: white;
+        }
+
+    /* Resaltar Rol */
+    .rol-badge {
+        font-size: 0.9rem;
+        padding: 0.4em 0.8em;
+        border-radius: 15px;
+        font-weight: 700;
+        background-color: #5a6b7a; /* Gris/Azul para Rol */
+        color: white;
+    }
+</style>
+
+<div class="d-flex align-items-center mb-4 mt-3">
+    <h2 class="header-title m-0 d-flex align-items-center">
+        <i class="fa-solid fa-user-check me-3 fs-3"></i>
+        Detalles del Empleado
+    </h2>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<hr class="mb-5" style="border-top: 2px solid #ff7b00; width: 100px; margin-left: 0;">
+
+<div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10">
+        <div class="details-card">
+
+            <h4 class="mb-4" style="color: #5a6b7a; border-bottom: 2px solid #eee; padding-bottom: 10px;">
+                Información del Empleado
+            </h4>
+
+            <dl class="row dl-horizontal">
+                <dt class="col-sm-3">
+                    <i class="fa-solid fa-id-badge me-2"></i> @Html.DisplayNameFor(model => model.Nombre)
+                </dt>
+                <dd class="col-sm-9">
+                    **@Html.DisplayFor(model => model.Nombre)**
+                </dd>
+
+                <dt class="col-sm-3">
+                    <i class="fa-solid fa-envelope me-2"></i> @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+
+                <dt class="col-sm-3">
+                    <i class="fa-solid fa-briefcase me-2"></i> @Html.DisplayNameFor(model => model.Rol)
+                </dt>
+                <dd class="col-sm-9">
+                    <span class="rol-badge">@Html.DisplayFor(model => model.Rol)</span>
+                </dd>
+            </dl>
+        </div>
+
+        <div class="mt-4 pt-3 d-flex justify-content-end">
+            <a asp-action="Index" class="btn btn-secondary-outline me-3">
+                <i class="fa-solid fa-arrow-left me-2"></i> Volver al Listado
+            </a>
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-custom-edit">
+                <i class="fa-solid fa-pen-to-square me-2"></i> Editar Empleado
+            </a>
+        </div>
+    </div>
 </div>

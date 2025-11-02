@@ -1,17 +1,106 @@
-﻿@model IEnumerable<HotelApp.Models.Habitacion>
+﻿<style>
+    
+
+    
+    .btn-custom-primary {
+        background-color: #5a6b7a !important;
+        border: none;
+        color: #fff;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    }
+
+        .btn-custom-primary:hover {
+            background-color: #ff7b00 !important; 
+            transform: scale(1.02);
+        }
+
+    
+    .habitacion-card {
+        border-radius: 12px; 
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background-color: #ffffff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
+    }
+
+        .habitacion-card:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+    
+    .card-header-custom {
+        background-color: #5a6b7a; 
+        color: white;
+        border-bottom: none;
+    }
+
+    
+    .badge-estado {
+        font-size: 0.85rem;
+        padding: 0.3em 0.7em;
+        border-radius: 15px;
+        font-weight: 700;
+    }
+
+    .badge-disponible {
+        background-color: #28a745;
+    }
+    
+    .badge-ocupada {
+        background-color: #dc3545;
+    }
+    
+    .btn-card-action {
+        color: #5a6b7a;
+        border: 1px solid #5a6b7a;
+        transition: all 0.2s;
+    }
+
+        .btn-card-action:hover {
+            background-color: #5a6b7a;
+            color: white;
+        }
+
+    
+    .btn-danger-action {
+        color: #dc3545;
+        border: 1px solid #dc3545;
+    }
+
+        .btn-danger-action:hover {
+            background-color: #dc3545;
+            color: white;
+        }
+</style>
+@model IEnumerable<HotelApp.Models.Habitacion>
 @inject LogicaDeNegocio.Data.AppDbContext _context
 
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
-<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css" />
+@{
+    ViewData["Title"] = "Habitaciones";
+}
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
 
-<h2 class="d-flex align-items-center" style="font-family: 'Montserrat', sans-serif; font-size: 1.8rem; color: #1a1a1a;">
-    <i class="fa-solid fa-bed me-2 text-primary"></i>
-    <span>Habitaciones</span>
 
-</h2>
-<br />
+<div class="d-flex justify-content-between align-items-center mb-4 mt-3">
+    <h2 class="fw-bold m-0 d-flex align-items-center" style="color: #5a6b7a;">
+        <i class="fa-solid fa-bed me-3 fs-3"></i>
+        Gestión de Habitaciones
+    </h2>
+
+    @if (EsAdministrador())
+    {
+        <a asp-action="Create" class="btn btn-custom-primary btn-lg shadow-sm">
+            <i class="fa-solid fa-plus me-2"></i> Nueva Habitación
+        </a>
+    }
+</div>
+
+<hr class="mb-5" style="border-top: 2px solid #ff7b00; width: 100px; margin-left: 0;">
+
 
 @functions {
     bool EsAdministrador()
@@ -24,43 +113,37 @@
 }
 
 
-
-@if (EsAdministrador())
-{
-    <a asp-action="Create" class="btn btn-warning mb-3">
-        <i class="fa-solid fa-plus"></i> Nueva Habitación
-    </a>
-}
-
 @if (!Model.Any())
 {
-    <div class="alert alert-info">No hay habitaciones registradas.</div>
+    <div class="alert alert-info text-center">
+        <i class="fa-solid fa-circle-info me-2"></i> No hay habitaciones registradas.
+    </div>
 }
 else
 {
-    <div class="row">
+    <div class="row g-4 habitaciones-container">
         @foreach (var habitacion in Model)
         {
-            <div class="col-md-4 mb-3">
-                <div class="card">
-                    <!-- Cabecera -->
-                    <div class="card-header bg-dark text-light d-flex justify-content-between align-items-center">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card habitacion-card">
+
+                    <div class="card-header card-header-custom d-flex justify-content-between align-items-center">
                         <h5 class="mb-0">
-                            <i class="fa-solid fa-bed text-warning me-2"></i>
-                            Habitación @habitacion.Numero
+                            <i class="fa-solid fa-hashtag text-warning me-2"></i>
+                            Habitación **@habitacion.Numero**
                         </h5>
 
                         @if (habitacion.Disponible)
                         {
-                            <span class="badge bg-success">Disponible</span>
+                            <span class="badge badge-estado badge-disponible">Disponible</span>
                         }
                         else
                         {
-                            <span class="badge bg-danger">Ocupada</span>
+                            <span class="badge badge-estado badge-ocupada">Ocupada</span>
                         }
                     </div>
-                    <!-- Cuerpo -->
-                    <div class="card-body bg-light text-dark">
+
+                    <div class="card-body">
                         <p class="mb-2">
                             <i class="fa-solid fa-layer-group text-secondary me-2"></i>
                             <strong>Piso:</strong> @habitacion.Piso
@@ -69,174 +152,31 @@ else
                             <i class="fa-solid fa-door-open text-secondary me-2"></i>
                             <strong>Tipo:</strong> @habitacion.Tipo
                         </p>
-                        <p class="mb-0">
-                            <i class="fa-solid fa-money-bill-wave text-secondary me-2"></i>
-                            <strong>Precio:</strong> $@habitacion.Precio
+                        <p class="mb-0 fw-bold" style="color: #ff7b00;">
+                            <i class="fa-solid fa-money-bill-wave me-2"></i>
+                            Precio: $@habitacion.Precio
                         </p>
                     </div>
-                    <div class="card-footer bg-white d-flex justify-content-between">
+
+                    <div class="card-footer bg-white d-flex justify-content-end">
+
+                        <a asp-action="Details" asp-route-id="@habitacion.Id" class="btn btn-sm btn-card-action me-2">
+                            <i class="fa-solid fa-eye"></i> Ver
+                        </a>
+
                         @if (EsAdministrador())
                         {
-                            <a asp-action="Edit" asp-route-id="@habitacion.Id" class="btn btn-sm btn-outline-dark">
+                            <a asp-action="Edit" asp-route-id="@habitacion.Id" class="btn btn-sm btn-card-action me-2">
                                 <i class="fa-solid fa-pen-to-square"></i> Editar
                             </a>
-                            <a asp-action="Delete" asp-route-id="@habitacion.Id" class="btn btn-sm btn-outline-danger">
+                            <a asp-action="Delete" asp-route-id="@habitacion.Id" class="btn btn-sm btn-danger-action">
                                 <i class="fa-solid fa-trash"></i> Eliminar
                             </a>
                         }
-                        <a asp-action="Details" asp-route-id="@habitacion.Id" class="btn btn-sm btn-outline-secondary">
-                            <i class="fa-solid fa-eye"></i> Ver
-                        </a>
                     </div>
-
-            
                 </div>
             </div>
         }
     </div>
 }
 
-
-
-@*     @if (Model == null || !Model.Any())
-    {
-        <div class="alert alert-info text-center">
-            <i class="fa-solid fa-circle-info me-2"></i>
-            No hay habitaciones registradas.
-        </div>
-    }
-    else
-    {
-        <div class="row g-4 mt-1">
-            @foreach (var habitacion in Model)
-            {
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card shadow-sm border-0 habitacion-card">
-                 
-
-                        <!-- Cabecera -->
-                        <div class="card-header bg-dark text-light d-flex justify-content-between align-items-center">
-                            <h5 class="mb-0">
-                                <i class="fa-solid fa-bed text-warning me-2"></i>
-                                Habitación @habitacion.Numero
-                            </h5>
-
-                            @if (habitacion.Disponible)
-                            {
-                                <span class="badge bg-success">Disponible</span>
-                            }
-                            else
-                            {
-                                <span class="badge bg-danger">Ocupada</span>
-                            }
-                        </div>
-
-                        <!-- Cuerpo -->
-                        <div class="card-body bg-light text-dark">
-                            <p class="mb-2">
-                                <i class="fa-solid fa-layer-group text-secondary me-2"></i>
-                                <strong>Piso:</strong> @habitacion.Piso
-                            </p>
-                            <p class="mb-2">
-                                <i class="fa-solid fa-door-open text-secondary me-2"></i>
-                                <strong>Tipo:</strong> @habitacion.Tipo
-                            </p>
-                            <p class="mb-0">
-                                <i class="fa-solid fa-money-bill-wave text-secondary me-2"></i>
-                                <strong>Precio:</strong> $@habitacion.Precio
-                            </p>
-                        </div>
-
-                        <!-- Footer -->
-                        <div class="card-footer bg-white d-flex justify-content-between">
-                            <a asp-action="Edit" asp-route-id="@habitacion.Id" class="btn btn-sm btn-outline-dark">
-                                <i class="fa-solid fa-pen-to-square"></i> Editar
-                            </a>
-                            <a asp-action="Details" asp-route-id="@habitacion.Id" class="btn btn-sm btn-outline-secondary">
-                                <i class="fa-solid fa-eye"></i> Ver
-                            </a>
-                            <a asp-action="Delete" asp-route-id="@habitacion.Id" class="btn btn-sm btn-outline-danger">
-                                <i class="fa-solid fa-trash"></i> Eliminar
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
-    }
-</div> *@
-
-<style>
-    /* ==== GENERAL ==== */
-    body {
-        background-color: #f4f4f4;
-    }
-
-    .habitaciones-container {
-        padding-top: 1rem !important;
-        margin-top: 0 !important;
-    }
-
-    h2 {
-        margin-top: 0 !important;
-    }
-
-    /* ==== TARJETAS ==== */
-    .habitacion-card {
-        border-radius: 18px;
-        overflow: hidden;
-        transition: all 0.3s ease;
-        background-color: #ffffff;
-    }
-
-        .habitacion-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-        }
-
-    .card-header h5 {
-        font-weight: 600;
-    }
-
-    /* ==== BOTONES ==== */
-    .btn-outline-dark:hover {
-        background-color: #ff7b00;
-        border-color: #ff7b00;
-        color: #fff;
-    }
-
-    .btn-outline-danger:hover {
-        background-color: #dc3545;
-        color: white;
-    }
-
-    .btn-outline-secondary:hover {
-        background-color: #6c757d;
-        color: white;
-    }
-
-    .btn-warning {
-        background-color: #ff7b00 !important;
-        border: none;
-    }
-
-        .btn-warning:hover {
-            background-color: #e96f00 !important;
-        }
-
-    /* ==== INSIGNIAS ==== */
-    .badge {
-        font-size: 0.9rem;
-        padding: 0.4em 0.6em;
-    }
-
-    /* ==== EFECTOS ==== */
-    .card-footer {
-        border-top: 1px solid #eee;
-    }
-
-    .card-body p i {
-        width: 20px;
-        text-align: center;
-    }
-</style>

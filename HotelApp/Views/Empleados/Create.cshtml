@@ -1,43 +1,128 @@
-﻿@model HotelApp.Models.Empleado
+﻿<style>
+    /* Usando tus colores de marca: #5a6b7a (Gris/Azul) y #ff7b00 (Naranja) */
+
+    /* Encabezado */
+    .header-title {
+        color: #5a6b7a;
+        font-weight: 700;
+        margin-bottom: 0;
+    }
+
+    /* Contenedor del Formulario (Card) */
+    .form-card {
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        background-color: #ffffff;
+    }
+
+    /* Botón Principal (Guardar) */
+    .btn-custom-primary {
+        background-color: #5a6b7a !important;
+        border: none;
+        color: #fff;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        border-radius: 8px;
+    }
+
+        .btn-custom-primary:hover {
+            background-color: #ff7b00 !important; /* Naranja en hover */
+            transform: scale(1.02);
+        }
+
+    /* Botón Secundario (Volver) */
+    .btn-secondary-outline {
+        color: #5a6b7a;
+        border: 1px solid #5a6b7a;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        border-radius: 8px;
+    }
+
+        .btn-secondary-outline:hover {
+            background-color: #5a6b7a;
+            color: white;
+        }
+
+    /* Estilos de Campos (Input y Select) */
+    .form-control, .form-select {
+        border-radius: 8px;
+        padding: 10px 15px;
+        box-shadow: none;
+        transition: border-color 0.2s;
+    }
+
+        .form-control:focus, .form-select:focus {
+            border-color: #ff7b00; /* Naranja al hacer foco */
+            box-shadow: 0 0 0 0.25rem rgba(255, 123, 0, 0.25);
+        }
+
+    /* Estilos para Etiquetas */
+    .control-label {
+        font-weight: 600;
+        color: #5a6b7a; /* Gris/Azul para etiquetas */
+        margin-bottom: 0.25rem;
+    }
+</style>
+@model HotelApp.Models.Empleado
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Nuevo Empleado";
 }
 
-<h1>Create</h1>
+<div class="d-flex align-items-center mb-4 mt-3">
+    <h2 class="header-title m-0 d-flex align-items-center">
+        <i class="fa-solid fa-user-plus me-3 fs-3"></i>
+        Registrar Nuevo Empleado
+    </h2>
+</div>
 
-<h4>Empleado</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Rol" class="control-label"></label>
-                <input asp-for="Rol" class="form-control" />
-                <span asp-validation-for="Rol" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+<hr class="mb-5" style="border-top: 2px solid #ff7b00; width: 100px; margin-left: 0;">
+
+<div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+        <div class="form-card">
+            <h4 class="mb-4" style="color: #5a6b7a; border-bottom: 2px solid #eee; padding-bottom: 10px;">
+                Información del Empleado
+            </h4>
+
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group mb-4">
+                    <label asp-for="Nombre" class="control-label">Nombre Completo</label>
+                    <input asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label asp-for="Email" class="control-label">Correo Electrónico</label>
+                    <input asp-for="Email" class="form-control" type="email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label asp-for="Rol" class="control-label">Rol / Puesto</label>
+                    <input asp-for="Rol" class="form-control" />
+                    <span asp-validation-for="Rol" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex justify-content-end mt-4 pt-3 border-top">
+                    <a asp-action="Index" class="btn btn-secondary-outline me-3">
+                        <i class="fa-solid fa-arrow-left me-2"></i> Volver al Listado
+                    </a>
+                    <button type="submit" class="btn btn-custom-primary">
+                        <i class="fa-solid fa-save me-2"></i> Crear Empleado
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

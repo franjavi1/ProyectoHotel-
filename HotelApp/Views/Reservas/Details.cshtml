@@ -1,60 +1,160 @@
 ﻿@model HotelApp.Models.Reserva
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles de Reserva";
 }
 
-<h1>Details</h1>
+<style>
+    
 
-<div>
-    <h4>Reserva</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Huesped)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Huesped.Apellido)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Habitacion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Habitacion.Numero)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Empleado)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Empleado.Email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FechaEntrada)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FechaEntrada)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FechaSalida)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FechaSalida)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PrecioTotal)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PrecioTotal)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Pagado)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Pagado)
-        </dd>
-    </dl>
+    
+    .header-title {
+        color: #5a6b7a;
+        font-weight: 700;
+        margin-bottom: 0;
+    }
+
+    
+    .details-card {
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        padding: 30px;
+        background-color: #ffffff;
+    }
+
+    
+    .dl-horizontal dt {
+        font-weight: 700;
+        color: #5a6b7a; 
+        margin-bottom: 10px;
+    }
+
+    .dl-horizontal dd {
+        margin-bottom: 10px;
+        font-size: 1.05rem; 
+    }
+
+    
+    .btn-custom-edit {
+        background-color: #ff7b00 !important; 
+        border: none;
+        color: #fff;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 8px 20px;
+    }
+
+        .btn-custom-edit:hover {
+            background-color: #e96f00 !important;
+            transform: scale(1.02);
+        }
+
+    
+    .btn-secondary-outline {
+        color: #5a6b7a;
+        border: 1px solid #5a6b7a;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 8px 20px;
+    }
+
+        .btn-secondary-outline:hover {
+            background-color: #5a6b7a;
+            color: white;
+        }
+
+    
+    .badge-paid {
+        font-size: 0.9rem;
+        padding: 0.4em 0.8em;
+        border-radius: 15px;
+        font-weight: 700;
+    }
+</style>
+
+<div class="d-flex align-items-center mb-4 mt-3">
+    <h2 class="header-title m-0 d-flex align-items-center">
+        <i class="fa-solid fa-file-invoice me-3 fs-3"></i>
+        Detalles de la Reserva
+    </h2>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<hr class="mb-5" style="border-top: 2px solid #ff7b00; width: 100px; margin-left: 0;">
+
+<div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10">
+        <div class="details-card">
+
+            <dl class="row dl-horizontal">
+                <dt class="col-sm-3">
+                    <i class="fa-solid fa-user me-2"></i> @Html.DisplayNameFor(model => model.Huesped)
+                </dt>
+                <dd class="col-sm-9">
+                    **@Html.DisplayFor(model => model.Huesped.Apellido)**, @Html.DisplayFor(model => model.Huesped.Nombre)
+                </dd>
+
+                <dt class="col-sm-3">
+                    <i class="fa-solid fa-bed me-2"></i> @Html.DisplayNameFor(model => model.Habitacion)
+                </dt>
+                <dd class="col-sm-9">
+                    Habitación **@Html.DisplayFor(model => model.Habitacion.Numero)**
+                </dd>
+
+                <dt class="col-sm-3">
+                    <i class="fa-solid fa-briefcase me-2"></i> @Html.DisplayNameFor(model => model.Empleado)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Empleado.Email)
+                </dd>
+
+                <hr class="mt-2 mb-3" />
+
+                <dt class="col-sm-3">
+                    <i class="fa-solid fa-calendar-day me-2"></i> @Html.DisplayNameFor(model => model.FechaEntrada)
+                </dt>
+                <dd class="col-sm-9">
+                    **@Model.FechaEntrada.ToString("dd MMMM, yyyy")**
+                </dd>
+
+                <dt class="col-sm-3">
+                    <i class="fa-solid fa-calendar-alt me-2"></i> @Html.DisplayNameFor(model => model.FechaSalida)
+                </dt>
+                <dd class="col-sm-9">
+                    **@Model.FechaSalida.ToString("dd MMMM, yyyy")**
+                </dd>
+
+                <dt class="col-sm-3">
+                    <i class="fa-solid fa-sack-dollar me-2"></i> @Html.DisplayNameFor(model => model.PrecioTotal)
+                </dt>
+                <dd class="col-sm-9" style="color: #ff7b00; font-weight: 700;">
+                    @String.Format("{0:C}", Model.PrecioTotal)
+                </dd>
+
+                <dt class="col-sm-3">
+                    <i class="fa-solid fa-wallet me-2"></i> @Html.DisplayNameFor(model => model.Pagado)
+                </dt>
+                <dd class="col-sm-9">
+                    @if (Model.Pagado)
+                    {
+                        <span class="badge badge-paid bg-success">PAGADO</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-paid bg-danger">PENDIENTE</span>
+                    }
+                </dd>
+            </dl>
+        </div>
+
+        <div class="mt-4 pt-3 d-flex justify-content-end">
+            <a asp-action="Index" class="btn btn-secondary-outline me-3">
+                <i class="fa-solid fa-arrow-left me-2"></i> Volver al Listado
+            </a>
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-custom-edit">
+                <i class="fa-solid fa-pen-to-square me-2"></i> Editar Reserva
+            </a>
+        </div>
+    </div>
 </div>
