@@ -1,54 +1,146 @@
-﻿@model HotelApp.Models.Habitacion
+﻿<style>
+
+    .header-title {
+        color: #5a6b7a;
+        font-weight: 700;
+        margin-bottom: 0;
+    }
+
+    
+    .form-card {
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        background-color: #ffffff;
+    }
+
+    
+    .btn-custom-edit {
+        background-color: #ff7b00 !important;
+        border: none;
+        color: #fff;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        border-radius: 8px;
+    }
+
+        .btn-custom-edit:hover {
+            background-color: #e96f00 !important; 
+            transform: scale(1.02);
+        }
+
+    
+    .btn-secondary-outline {
+        color: #5a6b7a;
+        border: 1px solid #5a6b7a;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        border-radius: 8px;
+    }
+
+        .btn-secondary-outline:hover {
+            background-color: #5a6b7a;
+            color: white;
+        }
+
+    
+    .form-control, .form-select {
+        border-radius: 8px;
+        padding: 10px 15px;
+        box-shadow: none;
+        transition: border-color 0.2s;
+    }
+
+        .form-control:focus, .form-select:focus {
+            border-color: #5a6b7a; 
+            box-shadow: 0 0 0 0.25rem rgba(90, 107, 122, 0.25);
+        }
+
+    
+    .control-label {
+        font-weight: 600;
+        color: #5a6b7a;
+        margin-bottom: 0.25rem;
+    }
+</style>
+@model HotelApp.Models.Habitacion
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Habitación";
 }
 
-<h1>Edit</h1>
+<div class="d-flex align-items-center mb-4 mt-3">
+    <h2 class="header-title m-0 d-flex align-items-center">
+        <i class="fa-solid fa-pen-to-square me-3 fs-3"></i>
+        Editar Información de la Habitación @Model.Numero
+    </h2>
+</div>
 
-<h4>Habitacion</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Numero" class="control-label"></label>
-                <input asp-for="Numero" class="form-control" />
-                <span asp-validation-for="Numero" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Tipo" class="control-label"></label>
-                <input asp-for="Tipo" class="form-control" />
-                <span asp-validation-for="Tipo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Piso" class="control-label"></label>
-                <input asp-for="Piso" class="form-control" />
-                <span asp-validation-for="Piso" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Precio" class="control-label"></label>
-                <input asp-for="Precio" class="form-control" />
-                <span asp-validation-for="Precio" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Disponible" /> @Html.DisplayNameFor(model => model.Disponible)
-                </label>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<hr class="mb-5" style="border-top: 2px solid #ff7b00; width: 100px; margin-left: 0;">
+
+<div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10">
+        <div class="form-card">
+            <h4 class="mb-4" style="color: #5a6b7a; border-bottom: 2px solid #eee; padding-bottom: 10px;">
+                Modificar Datos
+            </h4>
+
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group mb-4">
+                            <label asp-for="Numero" class="control-label">Número de Habitación</label>
+                            <input asp-for="Numero" class="form-control" />
+                            <span asp-validation-for="Numero" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label asp-for="Piso" class="control-label">Piso</label>
+                            <input asp-for="Piso" class="form-control" />
+                            <span asp-validation-for="Piso" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group form-check mb-4 mt-4">
+                            <input class="form-check-input" type="checkbox" asp-for="Disponible" style="width: 20px; height: 20px;" />
+                            <label class="form-check-label ms-2 control-label" asp-for="Disponible">
+                                ¿Está actualmente **Disponible** para reserva?
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group mb-4">
+                            <label asp-for="Tipo" class="control-label">Tipo de Habitación</label>
+                            <input asp-for="Tipo" class="form-control" />
+                            <span asp-validation-for="Tipo" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label asp-for="Precio" class="control-label">Precio por Noche</label>
+                            <input asp-for="Precio" class="form-control" />
+                            <span asp-validation-for="Precio" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end mt-4 pt-3 border-top">
+                    <a asp-action="Index" class="btn btn-secondary-outline me-3">
+                        <i class="fa-solid fa-arrow-left me-2"></i> Cancelar
+                    </a>
+                    <button type="submit" class="btn btn-custom-edit">
+                        <i class="fa-solid fa-save me-2"></i> Guardar Cambios
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
