@@ -71,14 +71,24 @@ namespace HotelWeb.Controllers
                         r.HabitacionId == reserva.HabitacionId &&
                         (
                             // Si las fechas se solapan (al menos un día en común)
-                            (reserva.FechaEntrada <= r.FechaSalida && reserva.FechaSalida >= r.FechaEntrada)
+                            (reserva.FechaEntrada < r.FechaSalida && reserva.FechaSalida > r.FechaEntrada)
                         )
                     );
 
                 if (haySuperposicion)
                 {
-                    ModelState.AddModelError("", "Ya existe una reserva para esta habitación en el rango de fechas seleccionado.");
-
+                    //ModelState.AddModelError("", "Ya existe una reserva para esta habitación en el rango de fechas seleccionado.");
+                    TempData["Error"] = "Ya existe una reserva para esta habitación en el rango de fechas seleccionado.";
+                    // Volvemos a armar los combos para la vista
+                    ViewData["EmpleadoId"] = new SelectList(_context.Empleados, "Id", "Email", reserva.EmpleadoId);
+                    ViewData["HabitacionId"] = new SelectList(_context.Habitaciones, "Id", "Numero", reserva.HabitacionId);
+                    ViewData["HuespedId"] = new SelectList(_context.Clientes, "Id", "Apellido", reserva.HuespedId);
+                    return View(reserva);
+                }
+                if (reserva.FechaEntrada >= reserva.FechaSalida)
+                {
+                    //ModelState.AddModelError("", "La fecha de entrada debe ser anterior a la fecha de salida.");
+                    TempData["Error"] = "La fecha de entrada debe ser anterior a la fecha de salida.";
                     // Volvemos a armar los combos para la vista
                     ViewData["EmpleadoId"] = new SelectList(_context.Empleados, "Id", "Email", reserva.EmpleadoId);
                     ViewData["HabitacionId"] = new SelectList(_context.Habitaciones, "Id", "Numero", reserva.HabitacionId);
@@ -86,8 +96,8 @@ namespace HotelWeb.Controllers
                     return View(reserva);
                 }
 
-                // ✅ Si no hay superposición, grabamos la reserva
-                _context.Add(reserva);
+                    // ✅ Si no hay superposición, grabamos la reserva
+                    _context.Add(reserva);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -138,15 +148,25 @@ namespace HotelWeb.Controllers
                         r.HabitacionId == reserva.HabitacionId &&
                         r.Id != reserva.Id && // 👈 excluimos la misma reserva
                         (
-                            reserva.FechaEntrada <= r.FechaSalida &&
-                            reserva.FechaSalida >= r.FechaEntrada
+                            reserva.FechaEntrada < r.FechaSalida &&
+                            reserva.FechaSalida > r.FechaEntrada
                         )
                     );
 
                 if (haySuperposicion)
                 {
-                    ModelState.AddModelError("", "Ya existe una reserva para esta habitación en el rango de fechas seleccionado.");
-
+                    //ModelState.AddModelError("", "Ya existe una reserva para esta habitación en el rango de fechas seleccionado.");
+                    TempData["Error"] = "Ya existe una reserva para esta habitación en el rango de fechas seleccionado.";
+                    ViewData["EmpleadoId"] = new SelectList(_context.Empleados, "Id", "Email", reserva.EmpleadoId);
+                    ViewData["HabitacionId"] = new SelectList(_context.Habitaciones, "Id", "Numero", reserva.HabitacionId);
+                    ViewData["HuespedId"] = new SelectList(_context.Clientes, "Id", "Apellido", reserva.HuespedId);
+                    return View(reserva);
+                }
+                if (reserva.FechaEntrada >= reserva.FechaSalida)
+                {
+                    //ModelState.AddModelError("", "La fecha de entrada debe ser anterior a la fecha de salida.");
+                    TempData["Error"] = "La fecha de entrada debe ser anterior a la fecha de salida.";
+                    // Volvemos a armar los combos para la vista
                     ViewData["EmpleadoId"] = new SelectList(_context.Empleados, "Id", "Email", reserva.EmpleadoId);
                     ViewData["HabitacionId"] = new SelectList(_context.Habitaciones, "Id", "Numero", reserva.HabitacionId);
                     ViewData["HuespedId"] = new SelectList(_context.Clientes, "Id", "Apellido", reserva.HuespedId);
