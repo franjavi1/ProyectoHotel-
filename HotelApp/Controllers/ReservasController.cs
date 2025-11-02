@@ -65,15 +65,39 @@ namespace HotelWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                // ✅ Verificar superposición de reservas para la misma habitación
+                bool haySuperposicion = await _context.Reservas
+                    .AnyAsync(r =>
+                        r.HabitacionId == reserva.HabitacionId &&
+                        (
+                            // Si las fechas se solapan (al menos un día en común)
+                            (reserva.FechaEntrada <= r.FechaSalida && reserva.FechaSalida >= r.FechaEntrada)
+                        )
+                    );
+
+                if (haySuperposicion)
+                {
+                    ModelState.AddModelError("", "Ya existe una reserva para esta habitación en el rango de fechas seleccionado.");
+
+                    // Volvemos a armar los combos para la vista
+                    ViewData["EmpleadoId"] = new SelectList(_context.Empleados, "Id", "Email", reserva.EmpleadoId);
+                    ViewData["HabitacionId"] = new SelectList(_context.Habitaciones, "Id", "Numero", reserva.HabitacionId);
+                    ViewData["HuespedId"] = new SelectList(_context.Clientes, "Id", "Apellido", reserva.HuespedId);
+                    return View(reserva);
+                }
+
+                // ✅ Si no hay superposición, grabamos la reserva
                 _context.Add(reserva);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["EmpleadoId"] = new SelectList(_context.Empleados, "Id", "Email", reserva.EmpleadoId);
             ViewData["HabitacionId"] = new SelectList(_context.Habitaciones, "Id", "Numero", reserva.HabitacionId);
             ViewData["HuespedId"] = new SelectList(_context.Clientes, "Id", "Apellido", reserva.HuespedId);
             return View(reserva);
         }
+
 
         // GET: Reservas/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -108,6 +132,27 @@ namespace HotelWeb.Controllers
 
             if (ModelState.IsValid)
             {
+                // ✅ Verificar que no haya otra reserva que se solape con las fechas editadas
+                bool haySuperposicion = await _context.Reservas
+                    .AnyAsync(r =>
+                        r.HabitacionId == reserva.HabitacionId &&
+                        r.Id != reserva.Id && // 👈 excluimos la misma reserva
+                        (
+                            reserva.FechaEntrada <= r.FechaSalida &&
+                            reserva.FechaSalida >= r.FechaEntrada
+                        )
+                    );
+
+                if (haySuperposicion)
+                {
+                    ModelState.AddModelError("", "Ya existe una reserva para esta habitación en el rango de fechas seleccionado.");
+
+                    ViewData["EmpleadoId"] = new SelectList(_context.Empleados, "Id", "Email", reserva.EmpleadoId);
+                    ViewData["HabitacionId"] = new SelectList(_context.Habitaciones, "Id", "Numero", reserva.HabitacionId);
+                    ViewData["HuespedId"] = new SelectList(_context.Clientes, "Id", "Apellido", reserva.HuespedId);
+                    return View(reserva);
+                }
+
                 try
                 {
                     _context.Update(reserva);
@@ -126,11 +171,13 @@ namespace HotelWeb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["EmpleadoId"] = new SelectList(_context.Empleados, "Id", "Email", reserva.EmpleadoId);
             ViewData["HabitacionId"] = new SelectList(_context.Habitaciones, "Id", "Numero", reserva.HabitacionId);
             ViewData["HuespedId"] = new SelectList(_context.Clientes, "Id", "Apellido", reserva.HuespedId);
             return View(reserva);
         }
+
 
         // GET: Reservas/Delete/5
         public async Task<IActionResult> Delete(int? id)
