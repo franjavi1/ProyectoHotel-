@@ -133,7 +133,7 @@ namespace HotelWeb.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,HuespedId,HabitacionId,EmpleadoId,FechaEntrada,FechaSalida,PrecioTotal,Pagado")] Reserva reserva)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,HuespedId,HabitacionId,EmpleadoId,FechaEntrada,FechaSalida,PrecioTotal,Pagado,Status")] Reserva reserva)
         {
             if (id != reserva.Id)
             {
@@ -239,5 +239,66 @@ namespace HotelWeb.Controllers
         {
             return _context.Reservas.Any(e => e.Id == id);
         }
+
+        // GET: Reservas/Check/5
+        public async Task<IActionResult> Check(int id)
+        {
+            var reserva = await _context.Reservas
+                .Include(r => r.Habitacion)
+                .Include(r => r.Huesped)
+                .FirstOrDefaultAsync(r => r.Id == id);
+
+            if (reserva == null)
+            {
+                return NotFound();
+            }
+
+            return View(reserva);
+        }
+
+        // POST: Reservas/Check/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CheckConfirmed(int id, string accion)
+        {
+            var reserva = await _context.Reservas.FindAsync(id);
+            if (reserva == null) return NotFound();
+
+            switch (reserva.Status)
+            {
+                case 1: // Pendiente → Check-in
+                    reserva.Status = 2;
+                    TempData["Mensaje"] = "Check-in realizado correctamente.";
+                    break;
+
+                case 2: // Check-in → Check-out o volver a pendiente
+                    if (accion == "checkout")
+                    {
+                        reserva.Status = 3;
+                        reserva.Pagado = true;
+                        TempData["Mensaje"] = "Check-out confirmado.";
+                    }
+                    else if (accion == "volver")
+                    {
+                        reserva.Status = 1;
+                        TempData["Mensaje"] = "Reserva vuelta a pendiente.";
+                    }
+                    break;
+
+                case 3: // Check-out → volver a check-in
+                    if (accion == "volverCheckin")
+                    {
+                        reserva.Status = 2;
+                        TempData["Mensaje"] = "La reserva volvió a estado de check-in. Recordá ajustar el pago manualmente.";
+                    }
+                    break;
+            }
+
+            _context.Update(reserva);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }

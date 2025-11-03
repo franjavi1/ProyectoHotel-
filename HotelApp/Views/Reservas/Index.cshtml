@@ -116,6 +116,13 @@
                                 <i class="fa-solid fa-door-closed"></i> Check-out
                             </a>
                         }
+                        else if (item.Status == 3)
+                        {
+                            <!-- Ya hizo check-out, mostrar revertir -->
+                            <a asp-action="Check" asp-route-id="@item.Id" class="btn btn-sm btn-warning me-1">
+                                <i class="fa-person-walking-arrow-loop-left"></i> Revertir
+                            </a>
+                        }
                         <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-action" title="Editar Reserva">
                             <i class="fa-solid fa-pen"></i>
                         </a>

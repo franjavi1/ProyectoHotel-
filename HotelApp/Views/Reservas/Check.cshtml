@@ -1,0 +1,60 @@
+﻿@model HotelApp.Models.Reserva
+@{
+    ViewData["Title"] = "Check In / Out";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="card shadow-sm p-4 mt-3">
+    <h4>Reserva @Model.Id</h4>
+    <p><strong>Habitación:</strong> @Model.Habitacion.Numero</p>
+    <p><strong>Huésped:</strong> @Model.Huesped.Apellido, @Model.Huesped.Nombre</p>
+    <p><strong>Fecha entrada:</strong> @Model.FechaEntrada.ToShortDateString()</p>
+    <p><strong>Fecha salida:</strong> @Model.FechaSalida.ToShortDateString()</p>
+    <p>
+        <strong>Estado actual:</strong>
+        @{
+            var estado = Model.Status switch
+            {
+                1 => "Pendiente",
+                2 => "Check-in",
+                3 => "Check-out",
+                _ => "Desconocido"
+            };
+        }
+        <span class="badge bg-info">@estado</span>
+    </p>
+
+    <form asp-action="CheckConfirmed" method="post">
+        <input type="hidden" name="id" value="@Model.Id" />
+
+        @if (Model.Status == 1)
+        {
+            <button type="submit" name="accion" value="checkin" class="btn btn-success">
+                <i class="fa-solid fa-door-open"></i> Confirmar Check-in
+            </button>
+        }
+        else if (Model.Status == 2)
+        {
+            <button type="submit" name="accion" value="checkout" class="btn btn-warning me-2">
+                <i class="fa-solid fa-door-closed"></i> Confirmar Check-out
+            </button>
+            <button type="submit" name="accion" value="volver" class="btn btn-secondary">
+                <i class="fa-solid fa-rotate-left"></i> Volver a Pendiente
+            </button>
+        }
+        else if (Model.Status == 3)
+        {
+            <div class="alert alert-warning">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                Esta reserva ya fue finalizada (Check-out). Si revertís a Check-in, deberás
+                ajustar el campo <strong>Pagado</strong> manualmente desde la edición.
+            </div>
+            <button type="submit" name="accion" value="volverCheckin" class="btn btn-primary">
+                <i class="fa-solid fa-door-open"></i> Volver a Check-in
+            </button>
+        }
+
+        <a asp-action="Index" class="btn btn-outline-secondary ms-2">Cancelar</a>
+    </form>
+</div>

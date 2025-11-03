@@ -114,6 +114,12 @@
                                 Pago Confirmado
                             </label>
                         </div>
+                        <select class="form-select" disabled>
+                            <option value="1" selected="@(Model.Status == 1)">Pendiente</option>
+                            <option value="2" selected="@(Model.Status == 2)">Check-in</option>
+                            <option value="3" selected="@(Model.Status == 3)">Check-out</option>
+                        </select>
+                        <input asp-for="Status" type="hidden" />
                     </div>
 
                     <div class="col-md-6">
