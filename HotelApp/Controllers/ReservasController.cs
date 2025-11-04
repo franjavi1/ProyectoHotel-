@@ -61,7 +61,7 @@ namespace HotelWeb.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,HuespedId,HabitacionId,EmpleadoId,FechaEntrada,FechaSalida,PrecioTotal,Pagado")] Reserva reserva)
+        public async Task<IActionResult> Create([Bind("Id,HuespedId,HabitacionId,EmpleadoId,FechaEntrada,FechaSalida,PrecioTotal,Pagado,Status")] Reserva reserva)
         {
             if (ModelState.IsValid)
             {
