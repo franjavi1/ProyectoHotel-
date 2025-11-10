@@ -62,7 +62,7 @@ namespace HotelWeb.Controllers
                     var administradores = new List<string>
                     {
                         "franciscojavierstevenin@gmail.com",
-                        "compañero1@gmail.com",
+                        "compañero1@gmail.com", 
                         "luis271277@gmail.com",
                         "diego.r.gallo@gmail.com"
                     };

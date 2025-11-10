@@ -34,7 +34,9 @@ namespace HotelApp.Controllers
             {
                 "franciscojavierstevenin@gmail.com",
                 "diego_rg@hotmail.com",
-                "diego.r.gallo@gmail.com"
+                "diego.r.gallo@gmail.com",
+                "luis271277@gmail.com",
+
             };
 
             // Verificar si es administrador
